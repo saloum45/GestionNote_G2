@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
  alerter(){
-  alert('hello')
+  // alert('hello');
  }
 }
