@@ -8,7 +8,7 @@
     <div class="sidebar-item">
       <span> <i class="fa-solid fa-chalkboard-user"></i> Gestion Formateurs </span>
       <div class="link-bloc">
-        <span id="link">Ajouter</span> <br />
+        <span id="link" routerLink="test" (click)="alerter()">Ajouter</span> <br />
         <span id="link">Lister</span>
       </div>
     </div>
@@ -33,5 +33,8 @@
         <span id="link">Lister</span>
       </div>
     </div>
+  </div>
+  <div class="logout">
+    <span><i class="bi bi-box-arrow-left"></i> Déconnexion</span>
   </div>
 </div>

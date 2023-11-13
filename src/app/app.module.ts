@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AdministrateurComponent } from './dashboards/administrateur/administrateur.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AdministrateurComponent,
-    SidebarComponent
+    SidebarComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
