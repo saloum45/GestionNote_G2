@@ -7,8 +7,10 @@ export class Apprenant {
   public numero:String="";
   public classe:String="";
   public pass:String="";
+  public photo:String = "";
 
-  constructor(matricule:String,nom:String,prenom:String,email:String,numero:String,classe:String,pass:String,id:number) {
+
+  constructor(matricule:String,nom:String,prenom:String,email:String,numero:String,classe:String,pass:String,id:number,photo:String) {
     this.id=id;
     this.matricule=matricule;
     this.nom=nom;
@@ -17,5 +19,6 @@ export class Apprenant {
     this.numero=numero;
     this.classe=classe;
     this.pass=pass;
+    this.photo=photo;
   }
 }

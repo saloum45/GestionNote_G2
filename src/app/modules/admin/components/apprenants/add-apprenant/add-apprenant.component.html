@@ -1,5 +1,5 @@
 <div class="formulaire">
-  <div class="mb-3">
+  <!-- <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Matricule</label>
     <input
       [(ngModel)]="matricule"
@@ -8,51 +8,117 @@
       id="exampleFormControlInput1"
       placeholder=""
     />
+
+  </div> -->
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [(ngModel)]="matricule"
+    />
+    <label for="floatingInput">Matricule</label>
   </div>
+<!--
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Nom</label>
     <input
-    [(ngModel)]="nom"
+      [(ngModel)]="nom"
       type="text"
       class="form-control"
       id="exampleFormControlInput1"
       placeholder=""
     />
+  </div> -->
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [(ngModel)]="prenom"
+    />
+    <label for="floatingInput">prenom</label>
   </div>
-  <div class="mb-3">
+  <!-- <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Prenom</label>
     <input
-    [(ngModel)]="prenom"
+      [(ngModel)]="prenom"
       type="text"
       class="form-control"
       id="exampleFormControlInput1"
       placeholder=""
     />
+  </div> -->
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [(ngModel)]="nom"
+    />
+    <label for="floatingInput">nom</label>
   </div>
-  <div class="mb-3">
+  <!-- <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label"
       >Email address</label
     >
     <input
-    [(ngModel)]="email"
+      [(ngModel)]="email"
       type="email"
       class="form-control"
       id="exampleFormControlInput1"
       placeholder=""
     />
+  </div> -->
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [(ngModel)]="email"
+    />
+    <label for="floatingInput">email</label>
   </div>
 
-  <div class="mb-3">
+  <!-- <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Numero</label>
     <input
-    [(ngModel)]="numero"
+      [(ngModel)]="numero"
       type="text"
       class="form-control"
       id="exampleFormControlInput1"
       placeholder=""
     />
+  </div> -->
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [(ngModel)]="numero"
+    />
+    <label for="floatingInput">numero</label>
   </div>
-  <select class="form-select" aria-label="Default select example" [(ngModel)]="classe">
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [(ngModel)]="photo"
+    />
+    <label for="floatingInput">photo</label>
+  </div>
+  <select
+    class="form-select"
+    aria-label="Default select example"
+    [(ngModel)]="classe"
+  >
     <option selected>Classe</option>
     <option value="seconde">Seconde</option>
     <option value="premiere">Premiere</option>
@@ -61,7 +127,12 @@
 
   <div class="text-center d-flex justify-content-around mt-4">
     <button class="btn btn-danger w-25">Annuler</button>
-    <button class="btn btn-primary w-25" (click)="ajouterApprenant()" routerLink="../listApprenant"
-    >Ajouter</button>
+    <button
+      class="btn btn-primary w-25"
+      (click)="ajouterApprenant()"
+      routerLink="../listApprenant"
+    >
+      Ajouter
+    </button>
   </div>
 </div>
