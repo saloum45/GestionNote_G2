@@ -1,4 +1,5 @@
 export class Apprenant {
+  public id:number=1;
   public matricule:String="";
   public nom:String="";
   public prenom:String="";
@@ -7,7 +8,8 @@ export class Apprenant {
   public classe:String="";
   public pass:String="";
 
-  constructor(matricule:String,nom:String,prenom:String,email:String,numero:String,classe:String,pass:String) {
+  constructor(matricule:String,nom:String,prenom:String,email:String,numero:String,classe:String,pass:String,id:number) {
+    this.id=id;
     this.matricule=matricule;
     this.nom=nom;
     this.prenom=prenom;

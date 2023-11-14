@@ -28,20 +28,30 @@ export class AddApprenantComponent implements OnInit {
   }
 
   ajouterApprenant() {
-    let apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer");
-    console.warn(apprenant);
+    let apprenant;
     if (localStorage.getItem('apprenants') == null || localStorage.getItem('apprenants') == undefined) {
-      localStorage.setItem('apprenants',JSON.stringify([apprenant]));
-      this.sweetMessage("merci","Insertion faite avec succes","success");
-    }else{
-      let listeApprenants= JSON.parse(localStorage.getItem('apprenants')||'[]');
+      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", 1);
+      localStorage.setItem('apprenants', JSON.stringify([apprenant]));
+      this.sweetMessage("merci", "Insertion faite avec succes", "success");
+    } else {
+      let listeApprenants = JSON.parse(localStorage.getItem('apprenants') || '[]');
+      let incrementedId = listeApprenants[listeApprenants.length - 1].id + 1;
+      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", incrementedId);
       listeApprenants.push(apprenant);
-      localStorage.setItem('apprenants',JSON.stringify(listeApprenants));
-      this.sweetMessage("merci","Insertion faite avec succes","success");
+      localStorage.setItem('apprenants', JSON.stringify(listeApprenants));
+      this.sweetMessage("merci", "Insertion faite avec succes", "success");
+      // réinitialisation du formulaire
+      this.matricule = "";
+      this.nom = "";
+      this.prenom = "";
+      this.email = "";
+      this.numero = "";
+      this.classe = "";
+
     }
   }
 
-  sweetMessage(title:any,text:any,icon:any){
+  sweetMessage(title: any, text: any, icon: any) {
     Swal.fire({
       title: title,
       text: text,
