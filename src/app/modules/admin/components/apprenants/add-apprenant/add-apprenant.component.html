@@ -72,7 +72,7 @@
     aria-label="Default select example"
     [(ngModel)]="classe"
   >
-    <option selected>Classe</option>
+    <option value="">Classe</option>
     <option value="seconde">Seconde</option>
     <option value="premiere">Premiere</option>
     <option value="terminale">Terminale</option>
@@ -82,9 +82,9 @@
     <button class="btn btn-danger w-25">Annuler</button>
     <button
       class="btn btn-primary w-25"
-      (click)="ajouterApprenant()"
-      routerLink="../listApprenant"
-    >
+      (click)="verifierFormAjout()"
+      >
+      <!-- routerLink="../listApprenant" -->
       Ajouter
     </button>
   </div>
