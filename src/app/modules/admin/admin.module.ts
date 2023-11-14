@@ -10,6 +10,7 @@ import { AddApprenantComponent } from './components/apprenants/add-apprenant/add
 import { ListApprenantComponent } from './components/apprenants/list-apprenant/list-apprenant.component';
 import { EditApprenantComponent } from './components/apprenants/edit-apprenant/edit-apprenant.component';
 import { DetailsApprenantComponent } from './components/apprenants/details-apprenant/details-apprenant.component';
+import { StattistiqueComponent } from './components/stattistique/stattistique.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DetailsApprenantComponent } from './components/apprenants/details-appre
     AddApprenantComponent,
     ListApprenantComponent,
     EditApprenantComponent,
-    DetailsApprenantComponent
+    DetailsApprenantComponent,
+    StattistiqueComponent
   ],
   imports: [
     CommonModule,
