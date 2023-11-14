@@ -1,74 +1,112 @@
-<section class="general" style="background-color: #ffffff;">
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-10">
-        <div class="card mb-5" style="border-radius: 15px;">
-          <div class="card-body p-4">
-            <h3 class="mb-3">André Demba Ndione</h3>
-            <h5>Matieres enseignées : <span class="matieres">physique-chimie, mathématique, pcience de la vie</span></h5><br>
-            <p class="small mb-0"><i class="icon fa-solid fa-user"></i> Compte crée le
-              <strong> 11 Avril 2021</strong>, derniere mise a jour le
-            <strong> 09 Mars 2022</strong>
-            </p>
-            <hr class="my-4">
-            <div class="services d-flex justify-content-start align-items-center">
-              <p class="mb-0 text-uppercase"><i class="fa-solid fa-flag"></i> <span
-                  class="text-muted small"> compte <span class="etat">actif</span></span></p>
-              <p class="mb-0 text-uppercase"><i class="fas fa-solid fa-note-sticky"></i> <span
-                  class="text-muted small"> les notes des apprenants</span></p>
-              <p class="mb-0 text-uppercase"><i class="fas fa-solid fa-dna"></i> <span
-                  class="text-muted small"> evaluation</span></p>
+<div class="container-fluid">
+    <div class="row">
+        <section class="general" style="background-color: #ffffff;">
+            <div class="row d-flex align-items-center h-100">
+                <div class="col col-xl-10">
+                <div class="card mb-5  w-100" style="border-radius: 15px;">
+                    <div class="card-body p-4 w-100">
+                        <div class="d-flex gap-5">
+                            <div>
+                                <div class="card mb-3">
+                                    <div class="row g-5 align-items-center">
+                                        <div class="col-md-4">
+                                            <img src="https://png.pngtree.com/png-clipart/20220111/ourlarge/pngtree-listen-to-music-little-brother-avatar-design-png-image_4150326.png" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="profil-icon card-body">
+                                                <h5 class="titre-card card-title mb-3">Andre Demba Ndione</h5>
+                                                <h5>Math <i class="fa-solid fa-circle"></i> PC <i class="fa-solid fa-circle"></i> SVT</h5>
+                                                <p class="card-text"><span class="classe-prof">Age : </span>25 ans</p>
+                                                <p class=" card-text"><span class="classe-prof">Classe(s) : </span>Second S1, Terminale S2</p>
+                                                <p class="card-text"><small class="text-muted">Derniere modification il y'a <span class="classe-prof">2 mois </span></small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <hr class="my-4">
+                    <div class="services d-flex justify-content-start">
+                        <p class="mb-0 text-uppercase"><i class="fa-solid fa-flag"></i> <span
+                            class="text-muted small"> compte <span class="etat" *ngIf="!prof">actif</span><span class="etat2" *ngIf="prof">inacctif</span></span><br><button class="btn btn-desactive" *ngIf="!prof" (click)="removeProf()">desactiver</button><button class="btn btn-desactive" *ngIf="prof" (click)="restartProf()">activer</button></p>
+                        <p class="mb-0 text-uppercase" (click)="showNote()"><i class="fas fa-solid fa-note-sticky"></i> <span
+                            class="text-muted small"> les notes des apprenants</span></p>
+                        <p class="mb-0 text-uppercase" (click)="showEvaluation()"><i class="fas fa-solid fa-dna"></i> <span
+                            class="text-muted small"> evaluation</span></p>
+                    </div> 
+                    </div>
+                    <div class="container" *ngIf="switch == 1">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="main-box clearfix">
+                                    <div class="table-responsive">
+                                        <table class="table user-list">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center"><span>Apprenants</span></th>
+                                                    <th class="text-center"><span>Semestre 1</span></th>
+                                                    <th class="text-center"><span>Semestre 2</span></th>
+                                                    <th class="text-center"><span>Examens</span></th>
+                                                    <th class="text-center"><span>Détails</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
+                                                        <h6>Thierno Habib Bah</h6>
+                                                        <span class="user-subhead">Second S2</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                    <span class="label label-success">20</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span class="label label-success">20</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                    <span class="label label-success">20</span>
+                                                    </td>
+                                                    <td style="width: 20%;" class="text-center">
+                                                        <a href="#" class="table-link">
+                                                        <i class="fa-solid fa-circle-info" style="font-size: 1.7em;"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <ul class="pagination pull-right">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100 px-4">
+                        <table class="evaluations w-100" *ngIf="switch == 2">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Evaluation</th>
+                                    <th scope="col">Classe</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Etat</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Devoir 1, Semestre 2</td>
+                                    <td>Seconde S2 G</td>
+                                    <td>21/10/2022</td>
+                                    <td>Fait</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        
+                </div>
             </div>
-          </div>
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-12">
-                      <div class="main-box clearfix">
-                          <div class="table-responsive">
-                              <table class="table user-list">
-                                  <thead>
-                                      <tr>
-                                          <th class="text-center"><span>Apprenants</span></th>
-                                          <th class="text-center"><span>Semestre 1</span></th>
-                                          <th class="text-center"><span>Semestre 2</span></th>
-                                          <th class="text-center"><span>Examens</span></th>
-                                          <th class="text-center"><span>Détails</span></th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td>
-                                              <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
-                                              <h6>Thierno Habib Bah</h6>
-                                              <span class="user-subhead">Second S2</span>
-                                          </td>
-                                          <td class="text-center">
-                                            <span class="label label-success">20</span>
-                                          </td>
-                                          <td class="text-center">
-                                              <span class="label label-success">20</span>
-                                          </td>
-                                          <td class="text-center">
-                                            <span class="label label-success">20</span>
-                                          </td>
-                                          <td style="width: 20%;" class="text-center">
-                                              <a href="#" class="table-link">
-                                                <i class="fa-solid fa-circle-info" style="font-size: 1.7em;"></i>
-                                              </a>
-                                          </td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                          </div>
-                          <ul class="pagination pull-right">
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-
-      </div>
+        </section>
     </div>
-  </div>
-</section>
+</div>
