@@ -60,17 +60,11 @@ export class AddApprenantComponent implements OnInit {
       this.prenom = "";
       this.email = "";
       this.numero = "";
-      this.classe = "";
-
+      this.classe = "";     
     }
     this.sweetMessage("merci", "Insertion faite avec succes", "success");
     this.router.navigate(['admin/listApprenant']);
-    // this.router.navigate(['../details']);
   }
-  // navigate(){
-
-  //   this.router.navigate(['../listApprenant']);
-  // }
 
   sweetMessage(title: any, text: any, icon: any) {
     Swal.fire({
