@@ -4,19 +4,19 @@
       <th scope="col">Matricule</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
-      <th scope="col">Class</th>
+      <th scope="col">Classe</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr id="list">
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+    <tr id="list" *ngFor="let apprenant of apprenants">
+      <td>{{apprenant.matricule}}</td>
+      <td>{{apprenant.nom}}</td>
+      <td>{{apprenant.prenom}}</td>
+      <td>{{apprenant.classe}}</td>
       <td class="" id="actions">
-        <button class="btn btn-primary">Détails</button>
-        <button class="btn btn-warning">Modifier</button>
+        <button class="btn btn-primary" routerLink="../details">Détails</button>
+        <button class="btn btn-warning text-white">Modifier</button>
         <button class="btn btn-danger">Désactiver</button>
       </td>
     </tr>

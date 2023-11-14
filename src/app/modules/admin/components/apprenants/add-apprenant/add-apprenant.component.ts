@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Apprenant } from 'src/app/models/apprenant';
 import Swal from 'sweetalert2';
 
@@ -19,7 +20,7 @@ export class AddApprenantComponent implements OnInit {
 
 
   // Methodes
-  constructor() {
+  constructor( private router:Router) {
 
   }
 
@@ -50,6 +51,10 @@ export class AddApprenantComponent implements OnInit {
 
     }
   }
+  // navigate(){
+
+  //   this.router.navigate(['../listApprenant']);
+  // }
 
   sweetMessage(title: any, text: any, icon: any) {
     Swal.fire({

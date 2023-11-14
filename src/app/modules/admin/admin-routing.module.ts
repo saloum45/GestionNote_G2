@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdministrateurComponent } from './components/administrateur/administrateur.component';
 import { AddApprenantComponent } from './components/apprenants/add-apprenant/add-apprenant.component';
 import { ListApprenantComponent } from './components/apprenants/list-apprenant/list-apprenant.component';
+import { DetailsApprenantComponent } from './components/apprenants/details-apprenant/details-apprenant.component';
+import { LoginComponent } from 'src/app/login/login.component';
 
 const routes: Routes = [
   {
@@ -12,8 +14,15 @@ const routes: Routes = [
       },
       {
         path:'listApprenant',component:ListApprenantComponent
+      },
+      {
+        path:'details',component:DetailsApprenantComponent
       }
+
     ]
+  },
+  {
+    path:'login',component:LoginComponent,
   }
 
 ];

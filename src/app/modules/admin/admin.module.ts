@@ -8,6 +8,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TestComponent } from './components/test/test.component';
 import { AddApprenantComponent } from './components/apprenants/add-apprenant/add-apprenant.component';
 import { ListApprenantComponent } from './components/apprenants/list-apprenant/list-apprenant.component';
+import { EditApprenantComponent } from './components/apprenants/edit-apprenant/edit-apprenant.component';
+import { DetailsApprenantComponent } from './components/apprenants/details-apprenant/details-apprenant.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ListApprenantComponent } from './components/apprenants/list-apprenant/l
     SidebarComponent,
     TestComponent,
     AddApprenantComponent,
-    ListApprenantComponent
+    ListApprenantComponent,
+    EditApprenantComponent,
+    DetailsApprenantComponent
   ],
   imports: [
     CommonModule,
