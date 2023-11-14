@@ -5,14 +5,49 @@
 .img-card-apprenant-profil{
     width: 250px;
     height: 250px;
-    border-radius: 50%;
+    // border-radius: 50%;
+    // border-radius: 4% 96% 60% 40% / 97% 21% 79% 3%;
+    border-radius: 0% 90% 0% 90% / 97% 0% 98% 0%;
+}
+.nom-connecter-apprenant{
+    color: black;
+    font-weight: bold;
+    font-size:25px;
+}
+.card-profil-apprenant{
+    border-radius: 0% 100% 0% 100% / 100% 3% 100% 0%;
+    background-color: #eee;
 }
 .voir-note{
-    // color: orangered;
-    // background-color: black;
+    color: white;
+    background-color: #3B71CA;
     width: 175px;
     border-radius: 5px;
 }
-.select-note{
+.card-evaluation-apprenant{
+    background-color: #eee;
+}
+.img-card-apprenant-profil-note{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+}
 
+.table {
+    border-collapse: separate;
+}
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+	background-color: #eee;
+}
+.table thead > tr > th {
+	border-bottom: 1px solid #C2C2C2;
+	padding-bottom: 0;
+}
+.table tbody > tr > td {
+	font-size: 0.875em;
+	background: #f5f5f5;
+	border-top: 10px solid #fff;
+	vertical-align: middle;
+	padding: 12px 8px;
 }

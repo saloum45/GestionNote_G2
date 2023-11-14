@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./apprenant.component.scss']
 })
 export class ApprenantComponent {
+  showEvaluation:boolean=false;
+  afficherFrmConnexion(){
+    this.showEvaluation=!this.showEvaluation
+  }
+  // retournerEvaluation(){
 
+  // }
 }
