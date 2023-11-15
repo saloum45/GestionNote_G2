@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Apprenant } from 'src/app/models/apprenant';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-apprenant',
@@ -6,5 +9,89 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-apprenant.component.scss']
 })
 export class EditApprenantComponent {
+  // Attributs
+  photo = "";
 
+  matricule = "";
+  nom = "";
+  prenom = "";
+  email = "";
+  numero = "";
+  classe = "";
+
+  idApprenantToModify: any;
+  // Methodes
+  constructor(private router: Router, private routerActivated: ActivatedRoute) {
+
+  }
+
+  ngOnInit(): void {
+    this.idApprenantToModify = this.routerActivated.snapshot.params['id'];
+    console.log(this.idApprenantToModify);
+    this.brancherChamps();
+  }
+
+
+  brancherChamps() {
+    let listeApprenants = JSON.parse(localStorage.getItem('apprenants') || '[]');
+    let apprenantToModify=listeApprenants.find((element:any)=> element.id==this.idApprenantToModify);
+    this.photo = apprenantToModify.photo;
+
+    this.matricule = apprenantToModify.matricule;
+    this.nom = apprenantToModify.nom;
+    this.prenom = apprenantToModify.prenom;
+    this.email = apprenantToModify.email;
+    this.numero = apprenantToModify.numero;
+    this.classe = apprenantToModify.classe;
+  }
+  // la fonction qui verifie les veleurs saisies au niveau des champs
+  verifierFormModif() {
+    if (this.matricule != "" || this.prenom != "" || this.nom != "" || this.email != "" || this.numero != "" || this.classe != "") {
+      this.modifierApprenant();
+
+    } else {
+      this.sweetMessage("désolé", "veuillez renseigner tous les chmaps", "error");
+
+    }
+  }
+
+  // la fonctionn qui fait l'ajout au niveau des champts
+  modifierApprenant() {
+    let apprenant;
+    if (localStorage.getItem('apprenants') == null || localStorage.getItem('apprenants') == undefined) {
+      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", 1, this.photo);
+      localStorage.setItem('apprenants', JSON.stringify([apprenant]));
+      // this.sweetMessage("merci", "Insertion faite avec succes", "success");
+    } else {
+      let listeApprenants = JSON.parse(localStorage.getItem('apprenants') || '[]');
+      // let incrementedId = listeApprenants[listeApprenants.length - 1].id + 1;
+      // listeApprenants.push(apprenant);
+      listeApprenants.forEach((element: any) => {
+        apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", element.id, this.photo);
+        if (element.id == this.idApprenantToModify) {
+          element = apprenant;
+        }
+
+      });
+      localStorage.setItem('apprenants', JSON.stringify(listeApprenants));
+      // réinitialisation du formulaire
+      this.matricule = "";
+      this.photo = "";
+      this.nom = "";
+      this.prenom = "";
+      this.email = "";
+      this.numero = "";
+      this.classe = "";
+    }
+    this.sweetMessage("merci", "Modification faite avec succes", "success");
+    this.router.navigate(['admin/listApprenant']);
+  }
+
+  sweetMessage(title: any, text: any, icon: any) {
+    Swal.fire({
+      title: title,
+      text: text,
+      icon: icon
+    });
+  }
 }

@@ -5,6 +5,7 @@ import { AddApprenantComponent } from './components/apprenants/add-apprenant/add
 import { ListApprenantComponent } from './components/apprenants/list-apprenant/list-apprenant.component';
 import { DetailsApprenantComponent } from './components/apprenants/details-apprenant/details-apprenant.component';
 import { LoginComponent } from 'src/app/login/login.component';
+import { EditApprenantComponent } from './components/apprenants/edit-apprenant/edit-apprenant.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
       },
       {
         path:'details',component:DetailsApprenantComponent
+      },
+      {
+        path:'modifier/:id',component:EditApprenantComponent
       }
 
     ]

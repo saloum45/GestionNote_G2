@@ -19,7 +19,7 @@
       <td>{{apprenant.classe}}</td>
       <td class="" id="actions">
         <button class="btn btn-primary" routerLink="../details">Détails</button>
-        <button class="btn btn-warning text-white">Modifier</button>
+        <button class="btn btn-warning text-white"  [routerLink]="['../modifier',apprenant.id]">Modifier</button>
         <button class="btn btn-danger">Désactiver</button>
       </td>
     </tr>
