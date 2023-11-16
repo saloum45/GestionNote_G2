@@ -72,10 +72,8 @@
     aria-label="Default select example"
     [(ngModel)]="classe"
   >
-    <option value="">Classe</option>
-    <option value="seconde">Seconde</option>
-    <option value="premiere">Premiere</option>
-    <option value="terminale">Terminale</option>
+    <option [value]="classe.nom" *ngFor="let classe of classes">{{classe.nom}}</option>
+
   </select>
 
   <div class="text-center d-flex justify-content-around mt-4">

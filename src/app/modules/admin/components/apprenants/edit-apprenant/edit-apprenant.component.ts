@@ -18,7 +18,7 @@ export class EditApprenantComponent {
   email = "";
   numero = "";
   classe = "";
-
+  classes:any;
   idApprenantToModify: any;
   // Methodes
   constructor(private router: Router, private routerActivated: ActivatedRoute) {
@@ -29,6 +29,7 @@ export class EditApprenantComponent {
     this.idApprenantToModify = this.routerActivated.snapshot.params['id'];
     console.log(this.idApprenantToModify);
     this.brancherChamps();
+    this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
   }
 
 

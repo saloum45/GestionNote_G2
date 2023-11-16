@@ -6,6 +6,10 @@ import { ListApprenantComponent } from './components/apprenants/list-apprenant/l
 import { DetailsApprenantComponent } from './components/apprenants/details-apprenant/details-apprenant.component';
 import { LoginComponent } from 'src/app/login/login.component';
 import { EditApprenantComponent } from './components/apprenants/edit-apprenant/edit-apprenant.component';
+import { AddClasseComponent } from './components/classes/add-classe/add-classe.component';
+import { ListClasseComponent } from './components/classes/list-classe/list-classe.component';
+import { DetailsClasseComponent } from './components/classes/details-classe/details-classe.component';
+import { EditClasseComponent } from './components/classes/edit-classe/edit-classe.component';
 
 const routes: Routes = [
   {
@@ -17,10 +21,22 @@ const routes: Routes = [
         path:'listApprenant',component:ListApprenantComponent
       },
       {
-        path:'details',component:DetailsApprenantComponent
+        path:'detailsApprenant',component:DetailsApprenantComponent
       },
       {
-        path:'modifier/:id',component:EditApprenantComponent
+        path:'modifierApprenant/:id',component:EditApprenantComponent
+      },
+      {
+        path:'addClasse',component:AddClasseComponent
+      },
+      {
+        path:'listClasse',component:ListClasseComponent
+      },
+      {
+        path:'detailsClasse',component:DetailsClasseComponent
+      },
+      {
+        path:'modifierClasse/:id',component:EditClasseComponent
       }
 
     ]

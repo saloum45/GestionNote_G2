@@ -18,7 +18,7 @@ export class AddApprenantComponent implements OnInit {
   email = "";
   numero = "";
   classe = "";
-
+  classes:any;
 
   // Methodes
   constructor(private router: Router) {
@@ -26,7 +26,7 @@ export class AddApprenantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
   }
 
   // la fonction qui verifie les veleurs saisies au niveau des champs
