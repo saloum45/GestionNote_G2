@@ -3,11 +3,17 @@
     height: 250px;
 }
 .img-card-apprenant-profil{
-    width: 250px;
-    height: 250px;
-    // border-radius: 50%;
-    // border-radius: 4% 96% 60% 40% / 97% 21% 79% 3%;
-    border-radius: 0% 90% 0% 90% / 97% 0% 98% 0%;
+    justify-content: start;
+    height: 300px;
+    border-radius: 5% 90% 5% 90% / 97% 1% 98% 1%;
+}
+
+.img-card-apprenant-profil-matiere{
+    justify-content: start;
+    height: 300px;
+}
+.img-card-apprenant-cours{
+    border-radius:5% 90% 5% 90% / 97% 1% 98% 1%;
 }
 .nom-connecter-apprenant{
     color: black;
@@ -23,6 +29,7 @@
     background-color: #3B71CA;
     width: 175px;
     border-radius: 5px;
+    border: #3B71CA;
 }
 .card-evaluation-apprenant{
     background-color: #eee;
