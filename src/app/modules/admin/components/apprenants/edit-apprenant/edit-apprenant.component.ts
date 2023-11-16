@@ -69,8 +69,16 @@ export class EditApprenantComponent {
       listeApprenants.forEach((element: any) => {
         apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", element.id, this.photo);
         if (element.id == this.idApprenantToModify) {
-          element = apprenant;
+          element.matricule = apprenant.matricule;
+          element.nom = apprenant.nom;
+          element.prenom = apprenant.prenom;
+          element.email = apprenant.email;
+          element.numero = apprenant.numero;
+          element.photo = apprenant.photo;
+          element.classe = apprenant.classe;
+          // alert('in')
         }
+        // alert('out')
 
       });
       localStorage.setItem('apprenants', JSON.stringify(listeApprenants));
