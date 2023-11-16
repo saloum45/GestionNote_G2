@@ -18,6 +18,7 @@ export class ListClasseComponent implements OnInit {
           element.etat="actif";
         }
       });
+      localStorage.setItem('classes',JSON.stringify(this.classes));
     }else if(faire=="desactiver"){
       this.classes.forEach((element:any) => {
         if (element.id==id) {
