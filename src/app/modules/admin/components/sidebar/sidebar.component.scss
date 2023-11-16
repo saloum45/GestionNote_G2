@@ -23,7 +23,7 @@
   color: white;
 }
 
-.sidebar-items .sidebar-item {
+.sidebar-items .sidebar-item,.dashboard{
   text-align: start;
   padding-left: 10px;
   height: 35px;
@@ -36,13 +36,13 @@
 .sidebar-items .sidebar-item:hover {
   height: 80px;
 }
-.sidebar-items .sidebar-item span {
+.sidebar-items .sidebar-item span,.dashboard span {
   font-size: 20px;
   font-weight: bold;
   color: #ffffff;
 }
 
-.sidebar-items .sidebar-item i {
+.sidebar-items .sidebar-item i ,.dashboard i{
   color: white;
 }
 
