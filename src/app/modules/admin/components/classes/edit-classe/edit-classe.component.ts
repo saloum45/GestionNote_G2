@@ -50,7 +50,7 @@ export class EditClasseComponent {
   modifierClasse() {
     let classe;
     if (localStorage.getItem('classes') == null || localStorage.getItem('classes') == undefined) {
-      classe = new Classe(1, this.nom, this.description);
+      classe = new Classe(1, this.nom, this.description,"actif");
       localStorage.setItem('classes', JSON.stringify([classe]));
       // this.sweetMessage("merci", "Insertion faite avec succes", "success");
     } else {
@@ -58,7 +58,7 @@ export class EditClasseComponent {
       // let incrementedId = listeClasses[listeClasses.length - 1].id + 1;
       // listeClasses.push(classe);
       listeClasses.forEach((element:any) => {
-        classe = new Classe(element.id, this.nom, this.description);
+        classe = new Classe(element.id, this.nom, this.description,"actif");
         if (element.id==this.idClasseToModify) {
           element.nom=classe.nom;
           element.description=classe.description;
@@ -86,4 +86,5 @@ export class EditClasseComponent {
       icon: icon
     });
   }
+ 
 }

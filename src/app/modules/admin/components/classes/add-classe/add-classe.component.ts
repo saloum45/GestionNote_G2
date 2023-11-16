@@ -39,13 +39,13 @@ export class AddClasseComponent {
   ajouterClasse() {
     let classe;
     if (localStorage.getItem('classes') == null || localStorage.getItem('classes') == undefined) {
-      classe = new Classe(1,this.nom, this.description);
+      classe = new Classe(1,this.nom, this.description,"actif");
       localStorage.setItem('classes', JSON.stringify([classe]));
       // this.sweetMessage("merci", "Insertion faite avec succes", "success");
     } else {
       let listeClasses = JSON.parse(localStorage.getItem('classes') || '[]');
       let incrementedId = listeClasses[listeClasses.length - 1].id + 1;
-      classe = new Classe(incrementedId,this.nom, this.description);
+      classe = new Classe(incrementedId,this.nom, this.description,"actif");
       listeClasses.push(classe);
       localStorage.setItem('classes', JSON.stringify(listeClasses));
       // réinitialisation du formulaire

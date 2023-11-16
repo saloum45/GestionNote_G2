@@ -19,6 +19,7 @@ export class AddApprenantComponent implements OnInit {
   numero = "";
   classe = "";
   classes:any;
+  classesActives:any[]=[];
 
   // Methodes
   constructor(private router: Router) {
@@ -27,6 +28,11 @@ export class AddApprenantComponent implements OnInit {
 
   ngOnInit(): void {
     this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
+    this.classes.forEach((element:any) => {
+      if (element.etat=='actif') {
+        this.classesActives.push(element);
+      }
+    });
   }
 
   // la fonction qui verifie les veleurs saisies au niveau des champs

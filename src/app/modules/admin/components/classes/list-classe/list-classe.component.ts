@@ -10,4 +10,23 @@ export class ListClasseComponent implements OnInit {
   ngOnInit(): void {
     this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
   }
+  activeDesactive(faire:any,id:number){
+    if (faire=="activer") {
+      // alert('activer')
+      this.classes.forEach((element:any) => {
+        if (element.id==id) {
+          element.etat="actif";
+        }
+      });
+    }else if(faire=="desactiver"){
+      this.classes.forEach((element:any) => {
+        if (element.id==id) {
+          element.etat="desactif";
+        }
+      });
+      localStorage.setItem('classes',JSON.stringify(this.classes));
+      // this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
+      // alert('desactiver')
+    }
+  }
 }
