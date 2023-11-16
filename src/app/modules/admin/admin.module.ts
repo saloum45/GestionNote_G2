@@ -11,6 +11,10 @@ import { ListApprenantComponent } from './components/apprenants/list-apprenant/l
 import { EditApprenantComponent } from './components/apprenants/edit-apprenant/edit-apprenant.component';
 import { DetailsApprenantComponent } from './components/apprenants/details-apprenant/details-apprenant.component';
 import { StattistiqueComponent } from './components/stattistique/stattistique.component';
+import { AddClasseComponent } from './components/classes/add-classe/add-classe.component';
+import { EditClasseComponent } from './components/classes/edit-classe/edit-classe.component';
+import { ListClasseComponent } from './components/classes/list-classe/list-classe.component';
+import { DetailsClasseComponent } from './components/classes/details-classe/details-classe.component';
 
 
 @NgModule({
@@ -22,7 +26,11 @@ import { StattistiqueComponent } from './components/stattistique/stattistique.co
     ListApprenantComponent,
     EditApprenantComponent,
     DetailsApprenantComponent,
-    StattistiqueComponent
+    StattistiqueComponent,
+    AddClasseComponent,
+    EditClasseComponent,
+    ListClasseComponent,
+    DetailsClasseComponent
   ],
   imports: [
     CommonModule,

@@ -34,7 +34,7 @@ export class EditApprenantComponent {
 
   brancherChamps() {
     let listeApprenants = JSON.parse(localStorage.getItem('apprenants') || '[]');
-    let apprenantToModify=listeApprenants.find((element:any)=> element.id==this.idApprenantToModify);
+    let apprenantToModify = listeApprenants.find((element: any) => element.id == this.idApprenantToModify);
     this.photo = apprenantToModify.photo;
 
     this.matricule = apprenantToModify.matricule;
@@ -93,6 +93,16 @@ export class EditApprenantComponent {
     }
     this.sweetMessage("merci", "Modification faite avec succes", "success");
     this.router.navigate(['admin/listApprenant']);
+  }
+
+  resetForm() {
+    this.matricule = "";
+    this.photo = "";
+    this.nom = "";
+    this.prenom = "";
+    this.email = "";
+    this.numero = "";
+    this.classe = "";
   }
 
   sweetMessage(title: any, text: any, icon: any) {

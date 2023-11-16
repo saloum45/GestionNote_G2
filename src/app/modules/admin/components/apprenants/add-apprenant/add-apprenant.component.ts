@@ -54,18 +54,21 @@ export class AddApprenantComponent implements OnInit {
       listeApprenants.push(apprenant);
       localStorage.setItem('apprenants', JSON.stringify(listeApprenants));
       // réinitialisation du formulaire
-      this.matricule = "";
-      this.photo = "";
-      this.nom = "";
-      this.prenom = "";
-      this.email = "";
-      this.numero = "";
-      this.classe = "";
+      this.resetForm();
     }
     this.sweetMessage("merci", "Insertion faite avec succes", "success");
     this.router.navigate(['admin/listApprenant']);
   }
 
+  resetForm() {
+    this.matricule = "";
+    this.photo = "";
+    this.nom = "";
+    this.prenom = "";
+    this.email = "";
+    this.numero = "";
+    this.classe = "";
+  }
   sweetMessage(title: any, text: any, icon: any) {
     Swal.fire({
       title: title,
