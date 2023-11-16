@@ -50,13 +50,13 @@ export class AddApprenantComponent implements OnInit {
   ajouterApprenant() {
     let apprenant;
     if (localStorage.getItem('apprenants') == null || localStorage.getItem('apprenants') == undefined) {
-      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", 1, this.photo);
+      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", 1, this.photo,'actif');
       localStorage.setItem('apprenants', JSON.stringify([apprenant]));
       // this.sweetMessage("merci", "Insertion faite avec succes", "success");
     } else {
       let listeApprenants = JSON.parse(localStorage.getItem('apprenants') || '[]');
       let incrementedId = listeApprenants[listeApprenants.length - 1].id + 1;
-      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", incrementedId, this.photo);
+      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", incrementedId, this.photo,'actif');
       listeApprenants.push(apprenant);
       localStorage.setItem('apprenants', JSON.stringify(listeApprenants));
       // réinitialisation du formulaire

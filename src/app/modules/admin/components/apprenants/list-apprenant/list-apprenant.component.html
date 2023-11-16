@@ -20,7 +20,8 @@
       <td class="" id="actions">
         <button class="btn btn-primary" routerLink="../detailsApprenant">Détails</button>
         <button class="btn btn-warning text-white"  [routerLink]="['../modifierApprenant',apprenant.id]">Modifier</button>
-        <button class="btn btn-danger">Désactiver</button>
+        <button class="btn btn-danger" (click)="activeDesactive('desactiver',apprenant.id)" *ngIf="apprenant.etat=='actif'">Désactiver</button>
+        <button class="btn btn-success" (click)="activeDesactive('activer',apprenant.id)" *ngIf="apprenant.etat=='desactif'">Activer</button>
       </td>
     </tr>
 

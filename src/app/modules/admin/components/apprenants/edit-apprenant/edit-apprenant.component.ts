@@ -60,7 +60,7 @@ export class EditApprenantComponent {
   modifierApprenant() {
     let apprenant;
     if (localStorage.getItem('apprenants') == null || localStorage.getItem('apprenants') == undefined) {
-      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", 1, this.photo);
+      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", 1, this.photo,'actif');
       localStorage.setItem('apprenants', JSON.stringify([apprenant]));
       // this.sweetMessage("merci", "Insertion faite avec succes", "success");
     } else {
@@ -68,7 +68,7 @@ export class EditApprenantComponent {
       // let incrementedId = listeApprenants[listeApprenants.length - 1].id + 1;
       // listeApprenants.push(apprenant);
       listeApprenants.forEach((element: any) => {
-        apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", element.id, this.photo);
+        apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", element.id, this.photo,'actif');
         if (element.id == this.idApprenantToModify) {
           element.matricule = apprenant.matricule;
           element.nom = apprenant.nom;
@@ -106,5 +106,26 @@ export class EditApprenantComponent {
       text: text,
       icon: icon
     });
+  }
+
+  activeDesactive(faire:any,id:number){
+    if (faire=="activer") {
+      // alert('activer')
+      this.classes.forEach((element:any) => {
+        if (element.id==id) {
+          element.etat="actif";
+        }
+      });
+      localStorage.setItem('classes',JSON.stringify(this.classes));
+    }else if(faire=="desactiver"){
+      this.classes.forEach((element:any) => {
+        if (element.id==id) {
+          element.etat="desactif";
+        }
+      });
+      localStorage.setItem('classes',JSON.stringify(this.classes));
+      // this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
+      // alert('desactiver')
+    }
   }
 }
