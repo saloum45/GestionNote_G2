@@ -84,13 +84,7 @@ export class EditApprenantComponent {
       });
       localStorage.setItem('apprenants', JSON.stringify(listeApprenants));
       // réinitialisation du formulaire
-      this.matricule = "";
-      this.photo = "";
-      this.nom = "";
-      this.prenom = "";
-      this.email = "";
-      this.numero = "";
-      this.classe = "";
+      this.resetForm();
     }
     this.sweetMessage("merci", "Modification faite avec succes", "success");
     this.router.navigate(['admin/listApprenant']);
