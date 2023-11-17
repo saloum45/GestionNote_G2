@@ -18,6 +18,8 @@ import { DetailsClasseComponent } from './components/classes/details-classe/deta
 import { AddProfesseursComponent } from './components/professeurs/add-professeurs/add-professeurs.component';
 import { ListProfesseursComponent } from './components/professeurs/list-professeurs/list-professeurs.component';
 import { AddMatiereComponent } from './components/matiere/add-matiere/add-matiere.component';
+import { Apprenant } from 'src/app/models/apprenant';
+import { ApprenantComponent } from './components/apprenant/apprenant.component';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { AddMatiereComponent } from './components/matiere/add-matiere/add-matier
     DetailsClasseComponent,
     AddProfesseursComponent,
     ListProfesseursComponent,
-    AddMatiereComponent
+    AddMatiereComponent,
+    ApprenantComponent
   ],
   imports: [
     CommonModule,
