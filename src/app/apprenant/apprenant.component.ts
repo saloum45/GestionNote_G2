@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Apprenant } from '../models/apprenant';
 
 @Component({
   selector: 'app-apprenant',
   templateUrl: './apprenant.component.html',
   styleUrls: ['./apprenant.component.scss']
 })
-export class ApprenantComponent {
+export class ApprenantComponent  implements OnInit{
+
+  apprenant:Apprenant[]=[
+    
+  ]
+   //constructeur apprenant
+   constructor(){};
+
 
   //info apprenant
   matricule = "";
