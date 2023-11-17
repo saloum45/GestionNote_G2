@@ -17,6 +17,7 @@ import { ListClasseComponent } from './components/classes/list-classe/list-class
 import { DetailsClasseComponent } from './components/classes/details-classe/details-classe.component';
 import { AddProfesseursComponent } from './components/professeurs/add-professeurs/add-professeurs.component';
 import { ListProfesseursComponent } from './components/professeurs/list-professeurs/list-professeurs.component';
+import { AddMatiereComponent } from './components/matiere/add-matiere/add-matiere.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ListProfesseursComponent } from './components/professeurs/list-professe
     ListClasseComponent,
     DetailsClasseComponent,
     AddProfesseursComponent,
-    ListProfesseursComponent
+    ListProfesseursComponent,
+    AddMatiereComponent
   ],
   imports: [
     CommonModule,

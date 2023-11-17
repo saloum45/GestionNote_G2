@@ -13,6 +13,7 @@ import { EditClasseComponent } from './components/classes/edit-classe/edit-class
 import { StattistiqueComponent } from './components/stattistique/stattistique.component';
 import { AddProfesseursComponent } from './components/professeurs/add-professeurs/add-professeurs.component';
 import { ListProfesseursComponent } from './components/professeurs/list-professeurs/list-professeurs.component';
+import { AddMatiereComponent } from './components/matiere/add-matiere/add-matiere.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,9 @@ const routes: Routes = [
       },
       {
         path:'listProfesseur',component:ListProfesseursComponent
+      },
+      {
+        path:'addMatiere',component:AddMatiereComponent
       }
 
     ]
