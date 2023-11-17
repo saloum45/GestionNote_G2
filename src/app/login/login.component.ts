@@ -12,6 +12,6 @@ export class LoginComponent {
 
   }
   connexion(){
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['admin']);
   }
 }

@@ -1,29 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProfesseursComponent } from './professeurs/professeurs.component';
 import { LoginComponent } from './login/login.component';
-import { AdministrateurComponent } from './dashboards/administrateur/administrateur.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { TestComponent } from './test/test.component';
+import { ListProfesseursComponent } from './modules/admin/components/professeurs/list-professeurs/list-professeurs.component';
+import { AddProfesseursComponent } from './modules/admin/components/professeurs/add-professeurs/add-professeurs.component';
 import { FormsModule } from '@angular/forms';
+import { AddMatiereComponent } from './modules/admin/components/matiere/add-matiere/add-matiere.component';
+import { ListMatiereComponent } from './modules/admin/components/matiere/list-matiere/list-matiere.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AdministrateurComponent,
-    SidebarComponent,
-    TestComponent,
-    ProfesseursComponent
+    ListProfesseursComponent,
+    AddProfesseursComponent,
+    AddMatiereComponent,
+    ListMatiereComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    [CommonModule],
     FormsModule
   ],
   providers: [],
