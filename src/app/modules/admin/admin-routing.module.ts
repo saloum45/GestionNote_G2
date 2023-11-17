@@ -11,6 +11,8 @@ import { ListClasseComponent } from './components/classes/list-classe/list-class
 import { DetailsClasseComponent } from './components/classes/details-classe/details-classe.component';
 import { EditClasseComponent } from './components/classes/edit-classe/edit-classe.component';
 import { StattistiqueComponent } from './components/stattistique/stattistique.component';
+import { AddProfesseursComponent } from './components/professeurs/add-professeurs/add-professeurs.component';
+import { ListProfesseursComponent } from './components/professeurs/list-professeurs/list-professeurs.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,12 @@ const routes: Routes = [
       },
       {
         path:'statistique',component:StattistiqueComponent
+      },
+      {
+        path:'addProfesseur',component:AddProfesseursComponent
+      },
+      {
+        path:'listProfesseur',component:ListProfesseursComponent
       }
 
     ]

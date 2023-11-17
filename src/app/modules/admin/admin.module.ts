@@ -15,6 +15,8 @@ import { AddClasseComponent } from './components/classes/add-classe/add-classe.c
 import { EditClasseComponent } from './components/classes/edit-classe/edit-classe.component';
 import { ListClasseComponent } from './components/classes/list-classe/list-classe.component';
 import { DetailsClasseComponent } from './components/classes/details-classe/details-classe.component';
+import { AddProfesseursComponent } from './components/professeurs/add-professeurs/add-professeurs.component';
+import { ListProfesseursComponent } from './components/professeurs/list-professeurs/list-professeurs.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { DetailsClasseComponent } from './components/classes/details-classe/deta
     AddClasseComponent,
     EditClasseComponent,
     ListClasseComponent,
-    DetailsClasseComponent
+    DetailsClasseComponent,
+    AddProfesseursComponent,
+    ListProfesseursComponent
   ],
   imports: [
     CommonModule,

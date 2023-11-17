@@ -2,12 +2,12 @@
   display: flex;
 }
 .dash-contanier .left{
-  width: 20%;
+  width: max-content;
 }
 .dash-contanier .right{
   height: 100vh;
   // background-color: red;
-  width: 80%;
+  width: 100%;
   padding: 50px;
   overflow-y: auto;
 }
