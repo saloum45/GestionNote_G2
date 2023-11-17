@@ -21,13 +21,21 @@ export class AddProfesseursComponent {
   nom !: string;
   mail !: string;
   tel !: string;
-  classes : string = '';
+  classes : any;
   matiere : string = '';
+  classesActives: any[]=[];
 
   ngOnInit(): void {
     this.listeprofesseurs = JSON.parse(localStorage.getItem('professeurs') || '[]');
     this.listMatieres = JSON.parse(localStorage.getItem('matiere') || '[]');
     this.listMatieres = this.listMatieres.filter((ele) => ele.etat == true);
+
+    this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
+    this.classes.forEach((element:any) => {
+      if (element.etat=='actif') {
+        this.classesActives.push(element);
+      }
+    });
   }
 
   viderChamps() {
