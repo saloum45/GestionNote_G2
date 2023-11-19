@@ -185,7 +185,7 @@
 
 <!-- Details -->
 <div class="container-fluid" *ngIf="showDetails">
-    <div class="row" *ngFor="let item of listeprofesseurs">
+    <div class="row" *ngFor="let item of editprofesseurs">
         <div class="fixed-alert alert alert-primary text-center" role="alert">
             Details de {{item.prenom}} {{item.nom}}
         </div>
@@ -199,16 +199,19 @@
                                         <div class="card mb-3">
                                             <div class="row g-5 align-items-center">
                                                 <div class="col-md-4">
-                                                    <img [src]="image" class="img-fluid rounded-start" alt="...">
+                                                    <img [src]="item.image" class="img-fluid rounded-start" alt="...">
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="profil-icon card-body">
                                                         <h5 class="titre-card card-title mb-3">{{item.prenom}} {{item.nom}}</h5><br>
-                                                        <h5>{{item.matiere}}</h5>
+                                                        <h5><span class="classe-prof">Matieres(s) :
+                                                        </span>{{item.matiere}}</h5>
                                                         <p class=" card-text"><span class="classe-prof">Classe(s) :
                                                             </span>{{item.classes}}</p>
-                                                        <p class="card-text"><small class="text-muted">Derniere modification
-                                                                il y'a <span class="classe-prof">2 mois </span></small></p>
+                                                        <p class="card-text"><span class="classe-prof">Adresse mail :
+                                                        </span><small class="text-muted"><span class="classe-prof">{{item.mail}}</span></small></p>
+                                                        <p class="card-text"><span class="classe-prof">Telephone :
+                                                        </span><small class="text-muted"><span class="classe-prof">{{item.tel}}</span></small></p>
                                                     </div>
                                                 </div>
                                             </div>

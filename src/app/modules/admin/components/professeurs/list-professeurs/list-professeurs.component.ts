@@ -131,19 +131,11 @@ export class ListProfesseursComponent implements OnInit {
     this.listeprofesseurs.forEach(element => {
       if (element.id == param) {
         this.editprofesseurs = this.listeprofesseurs.filter((ele) => ele.id == param);
-        this.cleId = element.id;
-        this.image = element.image;
-        this.prenom = element.prenom;
-        this.nom = element.nom;
-        this.mail = element.mail;
-        this.tel = element.tel;
-        this.classes = element.class;
-        this.matiere = element.matiere;
         this.showDetails = true;
+
       }
     });
   }
-
 
   // Filtre
 

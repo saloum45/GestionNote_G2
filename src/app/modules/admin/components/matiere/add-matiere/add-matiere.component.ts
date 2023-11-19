@@ -21,7 +21,7 @@ export class AddMatiereComponent implements OnInit {
   }
 
   viderChamps() {
-    id: Math.random();
+    this.libelle = "";
   }
 
   changeState(param: number) {
@@ -52,7 +52,14 @@ export class AddMatiereComponent implements OnInit {
         title: "Erreur !!",
         text: "Veiller respecter le format",
         icon: "error"
-      }); 
+      });
+    } else if (this.matieres.find((ele) => ele.libelle == this.libelle)) {
+      Swal.fire({
+        title: "Erreur !!",
+        text: `${this.libelle} existe déja`,
+        icon: "error"
+      });
+      this.viderChamps()
     } else {
       if (localStorage.getItem('matiere') == null || localStorage.getItem('matiere') == undefined) {
         matiere = new Matiere(this.id, this.libelle, this.etat);
