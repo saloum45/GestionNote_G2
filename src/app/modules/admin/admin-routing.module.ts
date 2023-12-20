@@ -19,6 +19,9 @@ const routes: Routes = [
   {
     path:'',component:AdministrateurComponent,children:[
       {
+        path:"",redirectTo:"statistique",pathMatch:'full'
+      },
+      {
         path:'addApprenant',component:AddApprenantComponent
       },
       {
