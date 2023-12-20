@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AllServiceService } from 'src/app/services/all-service.service';
 
 @Component({
   selector: 'app-list-classe',
@@ -6,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-classe.component.scss']
 })
 export class ListClasseComponent implements OnInit {
+  // Attributs
   classes:any;
+
+  constructor(private service:AllServiceService){
+
+  }
+  // Methodes
   ngOnInit(): void {
-    this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
+    this.service.getAll("classes",(reponse:any)=>{
+      this.classes=reponse;
+    })
+    // this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
   }
   activeDesactive(faire:any,id:number){
     if (faire=="activer") {

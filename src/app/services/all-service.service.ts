@@ -21,37 +21,38 @@ export class AllServiceService {
 
 
   login(path: any, email: string, pass: string, onSuccess: Function) {
-    this.http.get(`${this.urlBase + path}?filter={"where":{"email":"${email}","motDePasse":"${pass}"}}`).subscribe((reponse: any) => {
+    this.http.get(`${this.urlBase + path}?filter={"where":{"email":"${email}","pass":"${pass}"}}`).subscribe((reponse: any) => {
       onSuccess(reponse);
     });
   }
 
-  getAll(path: any, id: number, onSuccess: Function) {
-    this.http.get(`${this.urlBase + path}/produits?filter={"where":{"userId":"${id}"}}`).subscribe(
+  getById(path: any, id: number, onSuccess: Function) {
+    this.http.get(`${this.urlBase + path}/?filter={"where":{"id":"${id}"}}`).subscribe(
       (reponse: any) => {
         onSuccess(reponse);
       }
     )
   }
 
-  getById(path: any, id: number, onSuccess: Function) {
-    this.http.get(`${this.urlBase + path}/${id}`).subscribe(
+
+  getAll(path: any, onSuccess: Function) {
+    this.http.get(`${this.urlBase + path}`).subscribe(
       (reponse: any) => {
         onSuccess(reponse);
       }
     );
   }
 
-  add(path: any, dataTosend: any, onSuccess: Function) {
-    this.http.post(`${this.urlBase + path}`, dataTosend).subscribe(
+  add(path: any, dataToSend: any, onSuccess: Function) {
+    this.http.post(`${this.urlBase + path}`, dataToSend).subscribe(
       (reponse: any) => {
         onSuccess(reponse);
       }
     )
   }
 
-  update(path: any, dataTosend: any, onSuccess: Function) {
-    this.http.put(`${this.urlBase + path}/${dataTosend.id}`, dataTosend).subscribe(
+  update(path: any, dataToSend: any, onSuccess: Function) {
+    this.http.put(`${this.urlBase + path}/${dataToSend.id}`, dataToSend).subscribe(
       (reponse: any) => {
         onSuccess(reponse);
       }
