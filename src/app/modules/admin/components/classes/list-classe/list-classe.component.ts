@@ -17,7 +17,7 @@ export class ListClasseComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAll("classes",(reponse:any)=>{
       this.classes=reponse;
-    })
+    });
     // this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
   }
   activeDesactive(faire:any,id:number){

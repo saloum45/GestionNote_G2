@@ -16,9 +16,8 @@ export class AddClasseComponent {
   nom = "";
   description = "";
 
-
   // Methodes
-  constructor(private router: Router,private service:AllServiceService,private message:SweetMessageService) {
+  constructor(private router: Router, private service: AllServiceService, private message: SweetMessageService) {
 
   }
 
@@ -28,18 +27,18 @@ export class AddClasseComponent {
 
   // la fonction qui verifie les veleurs saisies au niveau des champs
   verifierFormAjout() {
-    if (this.nom != "" || this.description != "" ) {
+    if (this.nom != "" || this.description != "") {
       this.ajouterClasse();
 
     } else {
-      this.sweetMessage("désolé", "veuillez renseigner tous les chmaps", "error");
+      this.message.simpleMessage("désolé", "veuillez renseigner tous les chmaps", "error");
 
     }
   }
 
   // la fonctionn qui fait l'ajout au niveau des champts
   ajouterClasse() {
-    this.service.add("classes",{nom:this.nom,description:this.description,etat:"actif"},(reponse:any)=>{
+    this.service.add("classes", { nom: this.nom, description: this.description, etat: "actif" }, (reponse: any) => {
       console.log(reponse);
       if (reponse) {
         this.message.simpleMessage("merci", "Insertion faite avec succes", "success");
@@ -54,12 +53,5 @@ export class AddClasseComponent {
     this.nom = "";
     this.description = "";
 
-  }
-  sweetMessage(title: any, text: any, icon: any) {
-    Swal.fire({
-      title: title,
-      text: text,
-      icon: icon
-    });
   }
 }

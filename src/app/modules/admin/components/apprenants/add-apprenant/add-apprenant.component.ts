@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Apprenant } from 'src/app/models/apprenant';
+import { AllServiceService } from 'src/app/services/all-service.service';
+import { SweetMessageService } from 'src/app/services/sweet-message.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,21 +20,25 @@ export class AddApprenantComponent implements OnInit {
   email = "";
   numero = "";
   classe = "";
-  classes:any;
+  classes:any[]=[];
   classesActives:any[]=[];
 
   // Methodes
-  constructor(private router: Router) {
+  constructor(private router: Router,private service:AllServiceService, private message:SweetMessageService) {
 
   }
 
   ngOnInit(): void {
-    this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
-    this.classes.forEach((element:any) => {
-      if (element.etat=='actif') {
-        this.classesActives.push(element);
-      }
-    });
+    this.service.getAll("classes",(reponse:any)=>{
+      this.classes=reponse;
+      reponse.forEach((element:any) => {
+        if (element.etat=='actif') {
+          this.classesActives.push(element);
+        }
+      });
+    })
+    // this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
+    // console.warn(this.classesActives);
   }
 
   // la fonction qui verifie les veleurs saisies au niveau des champs
@@ -48,20 +54,36 @@ export class AddApprenantComponent implements OnInit {
 
   // la fonctionn qui fait l'ajout au niveau des champts
   ajouterApprenant() {
-    let apprenant;
-    if (localStorage.getItem('apprenants') == null || localStorage.getItem('apprenants') == undefined) {
-      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", 1, this.photo,'actif');
-      localStorage.setItem('apprenants', JSON.stringify([apprenant]));
-      // this.sweetMessage("merci", "Insertion faite avec succes", "success");
-    } else {
-      let listeApprenants = JSON.parse(localStorage.getItem('apprenants') || '[]');
-      let incrementedId = listeApprenants[listeApprenants.length - 1].id + 1;
-      apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", incrementedId, this.photo,'actif');
-      listeApprenants.push(apprenant);
-      localStorage.setItem('apprenants', JSON.stringify(listeApprenants));
-      // réinitialisation du formulaire
-      this.resetForm();
-    }
+    // let apprenant;
+    // if (localStorage.getItem('apprenants') == null || localStorage.getItem('apprenants') == undefined) {
+    //   apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", 1, this.photo,'actif');
+    //   localStorage.setItem('apprenants', JSON.stringify([apprenant]));
+    //   // this.sweetMessage("merci", "Insertion faite avec succes", "success");
+    // } else {
+    //   let listeApprenants = JSON.parse(localStorage.getItem('apprenants') || '[]');
+    //   let incrementedId = listeApprenants[listeApprenants.length - 1].id + 1;
+    //   apprenant = new Apprenant(this.matricule, this.nom, this.prenom, this.email, this.numero, this.classe, "passer", incrementedId, this.photo,'actif');
+    //   listeApprenants.push(apprenant);
+    //   localStorage.setItem('apprenants', JSON.stringify(listeApprenants));
+    //   // réinitialisation du formulaire
+    //   this.resetForm();
+    // }
+    this.service.add("apprenants", {
+      matricule:this.matricule,
+      photo:"img",
+      nom:this.nom,
+      prenom:this.prenom,
+      email:this.email,
+      numero:this.numero,
+      classe:this.classe,
+      pass:"passer1234",
+      etat:"actif"
+    }, (reponse: any) => {
+      console.log(reponse);
+      if (reponse) {
+        this.message.simpleMessage("merci", "Insertion faite avec succes", "success");
+      }
+    });
     this.sweetMessage("merci", "Insertion faite avec succes", "success");
     this.router.navigate(['admin/listApprenant']);
   }

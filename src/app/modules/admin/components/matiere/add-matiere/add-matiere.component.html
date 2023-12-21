@@ -43,7 +43,8 @@
             </div>
             <div class="formulaire" *ngIf="editMatiere">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control-edit form-control" id="floatingInput" *ngFor="let item of matiereEdit" placeholder="" [(ngModel)]="item.libelle" />
+                    <input type="text" class="form-control-edit form-control" id="floatingInput"  placeholder="" [(ngModel)]="libelle" />
+                    <!-- <input type="text" class="form-control-edit form-control" id="floatingInput" *ngFor="let item of matiereEdit" placeholder="" [(ngModel)]="item.libelle" /> -->
                     <label for="floatingInput">matiere</label>
                 </div>
                 <div class="text-center d-flex justify-content-around mt-4">

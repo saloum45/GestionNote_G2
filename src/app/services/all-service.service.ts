@@ -51,8 +51,8 @@ export class AllServiceService {
     )
   }
 
-  update(path: any, dataToSend: any, onSuccess: Function) {
-    this.http.put(`${this.urlBase + path}/${dataToSend.id}`, dataToSend).subscribe(
+  update(path: any,dataToSendId:any, dataToSend: any, onSuccess: Function) {
+    this.http.put(`${this.urlBase + path}/${dataToSendId}`, dataToSend).subscribe(
       (reponse: any) => {
         onSuccess(reponse);
       }
