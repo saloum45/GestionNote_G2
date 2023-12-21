@@ -75,7 +75,7 @@ export class AddApprenantComponent implements OnInit {
       prenom:this.prenom,
       email:this.email,
       numero:this.numero,
-      classe:this.classe,
+      classeId:Number(this.classe),
       pass:"passer1234",
       etat:"actif"
     }, (reponse: any) => {
