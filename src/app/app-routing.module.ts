@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SidebarComponent } from './modules/admin/components/sidebar/sidebar.component';
 import { LoginComponent } from './login/login.component';
+import { loginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () =>
-    import('./modules/admin/admin.module').then(m=> m.AdminModule)
+    import('./modules/admin/admin.module').then(m=> m.AdminModule),canActivate:[loginGuard]
   }
 
 ];

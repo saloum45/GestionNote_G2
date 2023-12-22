@@ -14,6 +14,7 @@ import { StattistiqueComponent } from './components/stattistique/stattistique.co
 import { AddProfesseursComponent } from './components/professeurs/add-professeurs/add-professeurs.component';
 import { ListProfesseursComponent } from './components/professeurs/list-professeurs/list-professeurs.component';
 import { AddMatiereComponent } from './components/matiere/add-matiere/add-matiere.component';
+import { loginGuard } from 'src/app/guards/login.guard';
 
 const routes: Routes = [
   {
@@ -61,7 +62,7 @@ const routes: Routes = [
     ]
   },
   {
-    path:'login',component:LoginComponent,
+    path:'login',component:LoginComponent
   }
 
 ];

@@ -3,57 +3,43 @@
     <!-- <span class=""> GestionNoteLogo </span> -->
     <img src="assets/Capture-removebg-preview.png" alt="" />
   </div>
-
-  <div class="sidebar-items">
+  <!-- admin -->
+  <div class="sidebar-items" *ngIf="whosOnline == 'admin'">
     <div class="dashboard" routerLink="statistique">
-      <span >
-        <i class="bi bi-grid-1x2-fill"></i> Dashboard
-      </span>
+      <span> <i class="bi bi-grid-1x2-fill"></i> Dashboard </span>
     </div>
     <div class="sidebar-item" routerLink="listProfesseur">
       <span>
         <i class="fa-solid fa-chalkboard-user"></i> Gestion Formateurs
       </span>
-      <!-- <div class="link-bloc">
-        <span id="link" routerLink="addProfesseur">Ajouter</span> <br />
-        <span id="link" routerLink="listProfesseur">Lister</span>
-      </div> -->
     </div>
     <div class="sidebar-item" routerLink="listApprenant">
       <span>
         <i class="fa-solid fa-graduation-cap"></i> Gestion Apprenants
       </span>
-      <!-- <div class="link-bloc">
-        <span id="link" routerLink="addApprenant">Ajouter</span> <br />
-        <span id="link" routerLink="listApprenant">Lister</span>
-      </div> -->
-    </div>
-
-    <div class="sidebar-item" >
-      <span> <i class="fa-solid fa-note-sticky"></i> Gestion Evaluation </span>
-      <!-- <div class="link-bloc">
-        <span id="link">Ajouter</span> <br />
-        <span id="link">Lister</span>
-      </div> -->
     </div>
     <div class="sidebar-item" routerLink="listClasse">
-      <span> <i class="bi bi-hospital" ></i> Gestion Classe </span>
-      <!-- <div class="link-bloc">
-        <span id="link" routerLink="addClasse">Ajouter</span> <br />
-        <span id="link" routerLink="listClasse">Lister</span>
-      </div> -->
+      <span> <i class="bi bi-hospital"></i> Gestion Classe </span>
     </div>
     <div class="sidebar-item" routerLink="addMatiere">
       <span> <i class="bi bi-journal-bookmark-fill"></i> Gestion Matière </span>
-      <!-- <div class="link-bloc">
-        <span id="link" routerLink="addMatiere">Ajouter</span> <br />
-        <span id="link" routerLink="listMatiere">Lister</span>
-      </div> -->
     </div>
   </div>
-  <div class="logout">
-    <span routerLink="login"
-      ><i class="bi bi-box-arrow-left"></i> Déconnexion</span
-    >
+  <!-- prof -->
+  <div class="sidebar-items" *ngIf="whosOnline == 'professeur'">
+    <div class="sidebar-item">
+      <span> <i class="fa-solid fa-note-sticky"></i> Gestion Evaluation </span>
+    </div>
+  </div>
+
+  <!-- apprenant -->
+  <div class="sidebar-items" *ngIf="whosOnline == 'apprenant'">
+    <div class="sidebar-item">
+      <span> <i class="fa-solid fa-note-sticky"></i> Gestion Evaluation </span>
+    </div>
+  </div>
+
+  <div class="logout" (click)="deconnexion()">
+    <span><i class="bi bi-box-arrow-left"></i> Déconnexion</span>
   </div>
 </div>
