@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Professeur } from 'src/app/models/professeurs';
+import { AllServiceService } from 'src/app/services/all-service.service';
+import { SweetMessageService } from 'src/app/services/sweet-message.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -21,20 +24,44 @@ export class AddProfesseursComponent {
   nom !: string;
   mail !: string;
   tel !: string;
-  classes : any;
-  matiere : string = '';
-  classesActives: any[]=[];
+  classes: any;
+  matiere: string = '';
+  // classe: string = '';
+  classesActives: any[] = [];
+
+
+  // Methodes
+  constructor(private service:AllServiceService,private message:SweetMessageService, private router:Router){
+
+  }
 
   ngOnInit(): void {
-    this.listeprofesseurs = JSON.parse(localStorage.getItem('professeurs') || '[]');
-    this.listMatieres = JSON.parse(localStorage.getItem('matiere') || '[]');
-    this.listMatieres = this.listMatieres.filter((ele) => ele.etat == true);
+    // this.listeprofesseurs = JSON.parse(localStorage.getItem('professeurs') || '[]');
+    // this.listMatieres = JSON.parse(localStorage.getItem('matiere') || '[]');
+    // this.listMatieres = this.listMatieres.filter((ele) => ele.etat == true);
 
-    this.classes=JSON.parse(localStorage.getItem('classes') || '[]');
-    this.classes.forEach((element:any) => {
-      if (element.etat=='actif') {
-        this.classesActives.push(element);
-      }
+    // this.classes = JSON.parse(localStorage.getItem('classes') || '[]');
+    // this.classes.forEach((element: any) => {
+    //   if (element.etat == 'actif') {
+    //     this.classesActives.push(element);
+    //   }
+    // });
+    this.service.getAll("classes",(reponse:any)=>{
+      this.classes=reponse;
+      reponse.forEach((element:any) => {
+        if (element.etat=='actif') {
+          this.classesActives.push(element);
+        }
+      });
+    });
+    this.service.getAll("matieres",(reponse:any)=>{
+      this.listMatieres=[];
+      // this.classes=reponse;
+      reponse.forEach((element:any) => {
+        if (element.etat=='actif') {
+          this.listMatieres.push(element);
+        }
+      });
     });
   }
 
@@ -49,64 +76,32 @@ export class AddProfesseursComponent {
   }
 
   ajouterProfesseur() {
-    let professeur;
-    if (this.image == "") {
-      this.image = 'https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png'
-    }
+
     if (this.image == "" || this.prenom == "" || this.nom == "" || this.mail == "" || this.tel == "" || this.classes == "" || this.matiere == "") {
-      Swal.fire({
-        title: "Erreur !!",
-        text: "Veillez remplir toutes les champs",
-        icon: "error"
-      });
-    } else {
-      if (this.prenom[0] === ' ' || this.prenom.length < 2) {
-        Swal.fire({
-          title: "Erreur !!",
-          text: "Veillez respecter le format de prenom",
-          icon: "error"
-        });
-      }
-      else if (this.nom === ' ' || this.nom.length < 2) {
-        Swal.fire({
-          title: "Erreur !!",
-          text: "Veillez respecter le format de nom",
-          icon: "error"
-        });
-      }
-      else if (!this.mail.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/)) {
-        Swal.fire({
-          title: "Erreur !!",
-          text: "Veillez remplir un mail valide",
-          icon: "error"
-        });
-      } else if (!this.tel.match(/(77|78|70|76|75)[0-9]{7}/)) {
-        Swal.fire({
-          title: "Erreur !!",
-          text: "Veillez remplir un telephone valide",
-          icon: "error"
-        });
-      } else {
-        if (localStorage.getItem('professeurs') == null || localStorage.getItem('professeurs') == undefined) {
-          professeur = new Professeur(this.id, this.image, this.prenom, this.nom, this.matiere, this.mail, this.tel, this.classes);
-          localStorage.setItem('professeurs', JSON.stringify([professeur]));
-          // this.sweetMessage("merci", "Insertion faite avec succes", "success");
-        } else {
-          this.listeprofesseurs = JSON.parse(localStorage.getItem('professeurs') || '[]');
-          let incrementedId = this.listeprofesseurs[this.listeprofesseurs.length - 1].id + 1;
-          professeur = new Professeur(incrementedId, this.image, this.prenom, this.nom, this.matiere, this.mail, this.tel, this.classes);
-          this.listeprofesseurs.push(professeur);
-          localStorage.setItem('professeurs', JSON.stringify(this.listeprofesseurs));
-          // réinitialisation du formulaire
+      this.message.simpleMessage("désolé", "Veuillez renseigner tous les champs", "error");
+
+    }else{
+
+      this.service.add("professeurs", {
+        // matricule:this.matricule,
+        image:"img",
+        nom:this.nom,
+        prenom:this.prenom,
+        email:this.mail,
+        telephone:this.tel,
+        classeId:Number(this.classes),
+        MatiereId:Number(this.matiere),
+        pass:"passer1234",
+        etat:"actif"
+      }, (reponse: any) => {
+        console.log(reponse);
+        if (reponse) {
+          this.message.simpleMessage("merci", "Insertion faite avec succes", "success");
         }
-        Swal.fire({
-          title: "Succes !!",
-          text: "Professeur ajouter avec succes",
-          icon: "success"
-        });
-        this.viderChamps();
-      }
+      });
+      // this.router.navigate(['admin/listProfesseur']);
     }
+    // this.message.simpleMessage("merci", "Insertion faite avec succes", "success");
   }
 
   valserAdminProfAdd() {

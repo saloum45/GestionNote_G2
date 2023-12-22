@@ -24,3 +24,15 @@
   color: white;
   font-weight: bold;
 }
+
+
+.crud-icons {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.crud-icons i{
+  font-size: 20px;
+  color: #20283E;
+  cursor: pointer;
+}

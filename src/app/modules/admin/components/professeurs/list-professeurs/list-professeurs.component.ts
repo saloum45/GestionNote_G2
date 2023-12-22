@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Professeur } from 'src/app/models/professeurs';
+import { AllServiceService } from 'src/app/services/all-service.service';
+import { SweetMessageService } from 'src/app/services/sweet-message.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,8 +20,8 @@ export class ListProfesseursComponent implements OnInit {
   showState!: boolean;
   editProf: boolean = false;
   showDetails: boolean = false;
-  
-  // 
+
+  //
   cleId!: number;
   id: number = 0;
   image !: string;
@@ -34,11 +36,19 @@ export class ListProfesseursComponent implements OnInit {
 
   filreClass = '';
 
+
+  // Methodes
+  constructor(private service:AllServiceService, private message:SweetMessageService){
+
+  }
   ngOnInit(): void {
     this.listeprofesseurs = JSON.parse(localStorage.getItem('professeurs') || '[]');
+    this.service.getAll("professeurs",(reponse:any)=>{
+      this.listeprofesseurs=reponse;
+    });
   }
 
-  changeState(param: number) {   
+  changeState(param: number) {
     this.listeprofesseurs.forEach(element => {
       if (element.id == param) {
         if (element.etat != true) {
@@ -101,7 +111,7 @@ export class ListProfesseursComponent implements OnInit {
       }
     });
   }
- 
+
   resetForm() {
     this.editProf = false;
   }

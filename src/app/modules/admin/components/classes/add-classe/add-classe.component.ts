@@ -44,6 +44,9 @@ export class AddClasseComponent {
         this.message.simpleMessage("merci", "Insertion faite avec succes", "success");
         this.router.navigate(['admin/listClasse']);
 
+      }else if(reponse.status){
+
+        this.message.simpleMessage("désolé", "Veuillez remplir tous les champs", "error");
       }
     });
   }

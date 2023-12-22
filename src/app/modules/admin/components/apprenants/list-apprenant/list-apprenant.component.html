@@ -11,7 +11,7 @@
     placeholder="Rechercher"
   />
 </div>
-<table class="table">
+<!-- <table class="table">
   <thead>
     <tr>
       <th scope="col">Matricule</th>
@@ -54,4 +54,28 @@
       </td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+<div class="row">
+  <div class="card mb-3 col-5 m-auto"  *ngFor="let apprenant of apprenants">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="https://c8.alamy.com/compfr/2m1kbd9/un-jeune-homme-intelligent-en-verre-s-assoit-dans-la-bibliotheque-avec-une-pile-de-livres-a-lire-un-gars-intelligent-aime-etudier-la-litterature-au-bureau-avec-des-piles-de-manuels-illustration-vectorielle-2m1kbd9.jpg" class="img-fluid rounded-start" alt="..." style="height: 100%; width: 100%;">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">{{apprenant.prenom}} {{apprenant.nom}}</h5>
+          <p class="card-text">{{apprenant.email}}</p>
+          <p class="card-text"><i class="bi bi-hospital" ></i> Terminale</p>
+          <span class="badge bg-body-secondary text-dark">{{apprenant.etat}}</span>
+          <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+          <div class="crud-icons">
+            <i class="bi bi-eye"></i>
+            <i class="bi bi-pencil-square"></i>
+            <i class="bi bi-trash3-fill"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
