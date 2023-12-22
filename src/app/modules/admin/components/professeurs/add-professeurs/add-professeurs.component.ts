@@ -90,7 +90,7 @@ export class AddProfesseursComponent {
         email:this.mail,
         telephone:this.tel,
         classeId:Number(this.classes),
-        MatiereId:Number(this.matiere),
+        matiereId:Number(this.matiere),
         pass:"passer1234",
         etat:"actif"
       }, (reponse: any) => {
@@ -99,7 +99,7 @@ export class AddProfesseursComponent {
           this.message.simpleMessage("merci", "Insertion faite avec succes", "success");
         }
       });
-      // this.router.navigate(['admin/listProfesseur']);
+      this.router.navigate(['admin/listProfesseur']);
     }
     // this.message.simpleMessage("merci", "Insertion faite avec succes", "success");
   }
