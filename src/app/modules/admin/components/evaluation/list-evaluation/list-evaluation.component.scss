@@ -20,4 +20,12 @@
   border-radius: 10px;
   padding: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.eval-items p i{
+  font-size: 40px;
+  margin-right: 20px;
 }

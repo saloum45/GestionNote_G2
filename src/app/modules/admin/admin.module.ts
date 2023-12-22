@@ -1,3 +1,4 @@
+import { DetailEvaluationComponent } from './components/evaluation/detail-evaluation/detail-evaluation.component';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -22,6 +23,7 @@ import { Apprenant } from 'src/app/models/apprenant';
 import { ApprenantComponent } from './components/apprenant/apprenant.component';
 import { AddEvaluationComponent } from './components/evaluation/add-evaluation/add-evaluation.component';
 import { ListEvaluationComponent } from './components/evaluation/list-evaluation/list-evaluation.component';
+import { DetailApprenantComponent } from 'src/app/detail-apprenant/detail-apprenant.component';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { ListEvaluationComponent } from './components/evaluation/list-evaluation
     AddMatiereComponent,
     ApprenantComponent,
     AddEvaluationComponent,
-    ListEvaluationComponent
+    ListEvaluationComponent,
+    DetailEvaluationComponent
   ],
   imports: [
     CommonModule,

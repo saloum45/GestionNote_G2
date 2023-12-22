@@ -17,6 +17,7 @@ import { AddMatiereComponent } from './components/matiere/add-matiere/add-matier
 import { loginGuard } from 'src/app/guards/login.guard';
 import { ListEvaluationComponent } from './components/evaluation/list-evaluation/list-evaluation.component';
 import { AddEvaluationComponent } from './components/evaluation/add-evaluation/add-evaluation.component';
+import { DetailEvaluationComponent } from './components/evaluation/detail-evaluation/detail-evaluation.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,9 @@ const routes: Routes = [
       },
       {
         path:'addEvaluation',component:AddEvaluationComponent
+      },
+      {
+        path:'detailEvaluation',component:DetailEvaluationComponent
       }
 
     ]
