@@ -33,6 +33,13 @@ export class AllServiceService {
       }
     )
   }
+  getByForeignId(path: any, id: number, onSuccess: Function,foreignIdName:any) {
+    this.http.get(`${this.urlBase + path}/?filter={"where":{"${foreignIdName}":"${id}"}}`).subscribe(
+      (reponse: any) => {
+        onSuccess(reponse);
+      }
+    )
+  }
 
 
   getAll(path: any, onSuccess: Function) {
