@@ -20,6 +20,8 @@ import { ListProfesseursComponent } from './components/professeurs/list-professe
 import { AddMatiereComponent } from './components/matiere/add-matiere/add-matiere.component';
 import { Apprenant } from 'src/app/models/apprenant';
 import { ApprenantComponent } from './components/apprenant/apprenant.component';
+import { AddEvaluationComponent } from './components/evaluation/add-evaluation/add-evaluation.component';
+import { ListEvaluationComponent } from './components/evaluation/list-evaluation/list-evaluation.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { ApprenantComponent } from './components/apprenant/apprenant.component';
     AddProfesseursComponent,
     ListProfesseursComponent,
     AddMatiereComponent,
-    ApprenantComponent
+    ApprenantComponent,
+    AddEvaluationComponent,
+    ListEvaluationComponent
   ],
   imports: [
     CommonModule,

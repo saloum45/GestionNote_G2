@@ -1,0 +1,64 @@
+<div class="alert alert-primary text-center" role="alert">
+  Listes des évaluations
+</div>
+<div class="mt-3 mb-3 d-flex justify-content-between" id="search-addbtn">
+  <button class="btn ajout">Ajouter</button>
+
+  <input
+    type="text"
+    class="form-control"
+    id="searchInput"
+    placeholder="Rechercher"
+  />
+</div>
+
+<div class="row">
+  <div class="col-7"></div>
+  <div class="col-4">
+    <div class="formulaire">
+      <!-- <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [(ngModel)]="matricule"
+    />
+    <label for="floatingInput">Matricule</label>
+  </div> -->
+
+      <div class="form-floating mb-3">
+        <input
+          type="date"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+          [(ngModel)]="date"
+        />
+        <label for="floatingInput">Date</label>
+        <select
+          class="form-select mt-3"
+          aria-label="Default select example"
+          [(ngModel)]="type"
+        >
+          <option value="exam">Exam</option>
+          <option value="devoir">Devoir</option>
+        </select>
+      </div>
+
+      <div class="text-center d-flex justify-content-around mt-4">
+        <button
+          class="btn btn-danger w-25"
+          (click)="resetForm()"
+          routerLink="../listEvaluation"
+        >
+          Annuler
+        </button>
+        <button class="btn btn-primary w-25" (click)="verifierFormAjout()">
+          <!-- routerLink="../listApprenant" -->
+          Ajouter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

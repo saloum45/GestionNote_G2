@@ -1,0 +1,61 @@
+<div class="alert alert-primary text-center" role="alert">
+  Ajout d'une evaluation
+</div>
+
+<div class="formulaire">
+  <!-- <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [(ngModel)]="matricule"
+    />
+    <label for="floatingInput">Matricule</label>
+  </div> -->
+
+  <div class="form-floating mb-3">
+    <input
+      type="date"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [(ngModel)]="date"
+    />
+    <label for="floatingInput">Date</label>
+  </div>
+<!--
+  <select
+    class="form-select"
+    aria-label="Default select example"
+    [(ngModel)]="matiere"
+  >
+    <option [value]="classe.id" *ngFor="let classe of classesActives">
+      {{ classe.nom }}
+    </option>
+  </select>
+
+  <select
+    class="form-select mt-3"
+    aria-label="Default select example"
+    [(ngModel)]="classe"
+  >
+    <option [value]="classe.id" *ngFor="let classe of classesActives">
+      {{ classe.nom }}
+    </option>
+  </select> -->
+
+  <div class="text-center d-flex justify-content-around mt-4">
+    <button
+      class="btn btn-danger w-25"
+      (click)="resetForm()"
+      routerLink="../listEvaluation"
+    >
+      Annuler
+    </button>
+    <button class="btn btn-primary w-25" (click)="verifierFormAjout()">
+      <!-- routerLink="../listApprenant" -->
+      Ajouter
+    </button>
+  </div>
+</div>

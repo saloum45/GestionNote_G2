@@ -70,7 +70,7 @@ export class AddApprenantComponent implements OnInit {
         this.message.simpleMessage("merci", "Insertion faite avec succes", "success");
       }
     });
-    this.sweetMessage("merci", "Insertion faite avec succes", "success");
+    // this.sweetMessage("merci", "Insertion faite avec succes", "success");
     this.router.navigate(['admin/listApprenant']);
   }
 

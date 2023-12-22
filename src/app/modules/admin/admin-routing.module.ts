@@ -15,6 +15,8 @@ import { AddProfesseursComponent } from './components/professeurs/add-professeur
 import { ListProfesseursComponent } from './components/professeurs/list-professeurs/list-professeurs.component';
 import { AddMatiereComponent } from './components/matiere/add-matiere/add-matiere.component';
 import { loginGuard } from 'src/app/guards/login.guard';
+import { ListEvaluationComponent } from './components/evaluation/list-evaluation/list-evaluation.component';
+import { AddEvaluationComponent } from './components/evaluation/add-evaluation/add-evaluation.component';
 
 const routes: Routes = [
   {
@@ -57,6 +59,12 @@ const routes: Routes = [
       },
       {
         path:'addMatiere',component:AddMatiereComponent
+      },
+      {
+        path:'listEvaluation',component:ListEvaluationComponent
+      },
+      {
+        path:'addEvaluation',component:AddEvaluationComponent
       }
 
     ]
