@@ -23,7 +23,7 @@ export class ListApprenantComponent implements OnInit{
     this.service.getAll("apprenants",(reponse:any)=>{
       this.apprenants=reponse;
 
-    })
+    });
   }
 
   activeDesactive(faire:any,id:number){

@@ -9,29 +9,38 @@ import { SweetMessageService } from 'src/app/services/sweet-message.service';
 })
 export class ListEvaluationComponent implements OnInit {
   // verifierFormAjout: any;
-  public date: any;
+  public date = "";
   public evaluations: any;
-  public type: any;
+  public type = "";
 
   constructor(private service: AllServiceService, private message: SweetMessageService) {
 
   }
   ngOnInit(): void {
+    this.loadAll();
+  }
 
+  loadAll() {
+    this.service.getAll("evaluations", (reponse: any) => {
+      this.evaluations = reponse;
+
+    })
   }
   resetForm() {
-    throw new Error('Method not implemented.');
+    this.date = "";
+    this.type = "";
   }
   verifierFormAjout() {
     if (this.date == "" || this.type == "") {
       this.message.simpleMessage('désolé', "veuillez renseigner tous les champs", "error");
     } else {
-      this.service.add("evaluations", { date: this.date, type: this.type, classeId: 1, matiereId: 1,etat:"venir" }, (reponse: any) => {
+      console.log({ date: this.date, type: this.type, classeId: 1, matiereId: 1, etat: "venir" });
+      this.service.add("evaluations", { date: this.date, type: this.type, classeId: 1, matiereId: 1, etat: "venir" }, (reponse: any) => {
         if (reponse) {
           console.log(reponse);
           this.message.simpleMessage("merci", "Insertion faite avec succes", "success");
-          // if (reponse) {
-          // }
+          this.resetForm();
+          this.loadAll();
         }
       })
     }

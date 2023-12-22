@@ -13,7 +13,12 @@
 </div>
 
 <div class="row">
-  <div class="col-7"></div>
+  <div class="col-7">
+    <div class="eval-items">
+      <p *ngFor="let evaluation of evaluations">{{evaluation.type}}-{{evaluation.date}}</p>
+
+    </div>
+  </div>
   <div class="col-4">
     <div class="formulaire">
       <!-- <div class="form-floating mb-3">
