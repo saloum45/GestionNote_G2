@@ -6,3 +6,45 @@
 .form-control-edit {
     color: green;
 }
+
+#search-addbtn input,#search-addbtn button
+{
+  width: 45%;
+}
+#search-addbtn button
+{
+  background-color: #20283E;
+  color: white;
+  font-weight: bold;
+}
+
+
+.all-cards
+{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.card
+{
+  width: 30%;
+  height: 150px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.card i
+{
+  color: #20283E;
+  font-size: 50px;
+}
+
+.card .crud-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.card .crud-icons i{
+  font-size: 20px;
+  color: #20283E;
+  cursor: pointer;
+}

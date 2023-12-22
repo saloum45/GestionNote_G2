@@ -1,7 +1,17 @@
 <div class="alert alert-primary text-center" role="alert">
   Listes des classes
 </div>
-<table class="table">
+<div class="mt-3 mb-3 d-flex justify-content-between" id="search-addbtn">
+  <button class="btn ajout" routerLink="../addClasse">Ajouter</button>
+
+  <input
+    type="text"
+    class="form-control"
+    id="searchInput"
+    placeholder="Rechercher"
+  />
+</div>
+<!-- <table class="table">
   <thead>
     <tr>
       <th scope="col">Nom</th>
@@ -22,4 +32,18 @@
     </tr>
 
   </tbody>
-</table>
+</table> -->
+
+<div class="all-cards">
+
+  <div class="card" *ngFor="let classe of classes">
+    <i class="bi bi-hospital" ></i>
+    <h5>{{classe.nom}}</h5>
+    <div class="crud-icons">
+      <i class="bi bi-eye"></i>
+      <i class="bi bi-pencil-square"></i>
+      <i class="bi bi-trash3-fill"></i>
+    </div>
+  </div>
+
+</div>

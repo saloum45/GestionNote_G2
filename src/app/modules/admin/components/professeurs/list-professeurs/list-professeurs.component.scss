@@ -359,3 +359,15 @@ a {
     width: 80%;
     margin: 0 auto;
 }
+
+// retouche
+#search-addbtn input,#search-addbtn button
+{
+  width: 45%;
+}
+#search-addbtn button
+{
+  background-color: #20283E;
+  color: white;
+  font-weight: bold;
+}

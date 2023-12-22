@@ -1,6 +1,16 @@
 <div class="alert alert-primary text-center" role="alert">
   Listes des apprenants
 </div>
+<div class="mt-3 mb-3 d-flex justify-content-between" id="search-addbtn">
+  <button class="btn ajout" routerLink="../addApprenant">Ajouter</button>
+
+  <input
+    type="text"
+    class="form-control"
+    id="searchInput"
+    placeholder="Rechercher"
+  />
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -13,17 +23,35 @@
   </thead>
   <tbody>
     <tr id="list" *ngFor="let apprenant of apprenants">
-      <td>{{apprenant.matricule}}</td>
-      <td>{{apprenant.nom}}</td>
-      <td>{{apprenant.prenom}}</td>
-      <td>{{apprenant.classeId}}</td>
+      <td>{{ apprenant.matricule }}</td>
+      <td>{{ apprenant.nom }}</td>
+      <td>{{ apprenant.prenom }}</td>
+      <td>{{ apprenant.classeId }}</td>
       <td class="" id="actions">
-        <button class="btn btn-primary" routerLink="../detailsApprenant">Détails</button>
-        <button class="btn btn-warning text-white"  [routerLink]="['../modifierApprenant',apprenant.id]">Modifier</button>
-        <button class="btn btn-danger" (click)="activeDesactive('desactiver',apprenant.id)" *ngIf="apprenant.etat=='actif'">Désactiver</button>
-        <button class="btn btn-success" (click)="activeDesactive('activer',apprenant.id)" *ngIf="apprenant.etat=='desactif'">Activer</button>
+        <button class="btn btn-primary" routerLink="../detailsApprenant">
+          Détails
+        </button>
+        <button
+          class="btn btn-warning text-white"
+          [routerLink]="['../modifierApprenant', apprenant.id]"
+        >
+          Modifier
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="activeDesactive('desactiver', apprenant.id)"
+          *ngIf="apprenant.etat == 'actif'"
+        >
+          Désactiver
+        </button>
+        <button
+          class="btn btn-success"
+          (click)="activeDesactive('activer', apprenant.id)"
+          *ngIf="apprenant.etat == 'desactif'"
+        >
+          Activer
+        </button>
       </td>
     </tr>
-
   </tbody>
 </table>
