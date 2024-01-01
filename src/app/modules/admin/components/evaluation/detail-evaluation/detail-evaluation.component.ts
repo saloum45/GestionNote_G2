@@ -19,8 +19,19 @@ export class DetailEvaluationComponent implements OnInit {
     this.service.getByForeignId("apprenants", this.onlineProfesseur.user[0].classeId, (reponse: any) => {
       console.warn(reponse);
       this.apprenants = reponse;
-
     }, "classeId");
+
+    this.service.getByForeignId("notes", +this.activatedRoute.snapshot.params['id'], (reponse: any) => {
+      console.warn(reponse);
+      this.notes = reponse;
+      if (this.notes.length>0) {
+
+        let allNotes = document.querySelectorAll('input');
+        allNotes.forEach((element: any, index) => {
+          element.value = this.notes[index].note;
+        });
+      }
+    }, "evaluationId");
   }
 
   attribuerNote() {
@@ -37,12 +48,13 @@ export class DetailEvaluationComponent implements OnInit {
     // console.log(element.value);
     // console.warn("data",{evaluationId:5,apprenantId:elementApp.id,note:Number(element.value)});
     console.warn("appnoote", apprennatNotes);
-    apprennatNotes.forEach((element:any)=>{
-      this.service.add("notes",{evaluationId:5,apprenantId:element.apprenant.id,note:Number(element.note)},(reponse:any)=>{
+    apprennatNotes.forEach((element: any) => {
+      this.service.add("notes", { evaluationId: +this.activatedRoute.snapshot.params['id'], apprenantId: element.apprenant.id, note: Number(element.note) }, (reponse: any) => {
         console.log(reponse);
+        this.message.simpleMessage("merci","les notes ont étées attribuées avec succès","success");
       });
 
-    })
+    });
   }
 
 }

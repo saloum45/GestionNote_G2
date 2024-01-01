@@ -36,8 +36,8 @@ export class ListEvaluationComponent implements OnInit {
     if (this.date == "" || this.type == "") {
       this.message.simpleMessage('désolé', "veuillez renseigner tous les champs", "error");
     } else {
-      console.log({ date: this.date, type: this.type, classeId: 1, matiereId: 1, etat: "venir" });
-      this.service.add("evaluations", { date: this.date, type: this.type, classeId: 1, matiereId: 1, etat: "venir" }, (reponse: any) => {
+      console.log({ date: this.date, type: this.type, classeId: this.onlineProfesseur.user[0].classeId, matiereId: this.onlineProfesseur.user[0].matiereId, etat: "venir" });
+      this.service.add("evaluations", { date: this.date, type: this.type, classeId: this.onlineProfesseur.user[0].classeId, matiereId: this.onlineProfesseur.user[0].matiereId, etat: "venir" }, (reponse: any) => {
         if (reponse) {
           console.log(reponse);
           this.message.simpleMessage("merci", "Insertion faite avec succes", "success");

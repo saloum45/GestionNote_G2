@@ -68,7 +68,7 @@ const routes: Routes = [
         path:'addEvaluation',component:AddEvaluationComponent
       },
       {
-        path:'detailEvaluation',component:DetailEvaluationComponent
+        path:'detailEvaluation/:id',component:DetailEvaluationComponent
       }
 
     ]
