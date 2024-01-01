@@ -61,14 +61,12 @@
               </thead>
               <tbody>
                 <tr *ngFor="let apprenant of apprenants">
-
                   <td class="">
                    {{apprenant.prenom}} {{apprenant.nom}}
                   </td>
                   <td class="">
                     <input type="text">
                   </td>
-
                 </tr>
               </tbody>
             </table>
@@ -76,6 +74,7 @@
         </div>
       </div>
     </div>
+    <button class="btn btn-primary w-100" (click)="attribuerNote()">Attribuer note</button>
   </div>
 </div>
 <!-- fin detail apprenant -->

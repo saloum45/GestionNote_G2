@@ -23,4 +23,26 @@ export class DetailEvaluationComponent implements OnInit {
     }, "classeId");
   }
 
+  attribuerNote() {
+
+    let allNotes = document.querySelectorAll('input');
+    let apprennatNotes: any[] = [];
+    this.apprenants.forEach((elementApp: any, index: any) => {
+      let obj = {
+        apprenant: elementApp,
+        note: allNotes[index].value
+      };
+      apprennatNotes.push(obj);
+    });
+    // console.log(element.value);
+    // console.warn("data",{evaluationId:5,apprenantId:elementApp.id,note:Number(element.value)});
+    console.warn("appnoote", apprennatNotes);
+    apprennatNotes.forEach((element:any)=>{
+      this.service.add("notes",{evaluationId:5,apprenantId:element.apprenant.id,note:Number(element.note)},(reponse:any)=>{
+        console.log(reponse);
+      });
+
+    })
+  }
+
 }
