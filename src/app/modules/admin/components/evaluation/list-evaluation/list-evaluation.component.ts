@@ -12,6 +12,7 @@ export class ListEvaluationComponent implements OnInit {
   public date = "";
   public evaluations: any;
   public type = "";
+  public onlineProfesseur: any;
 
   constructor(private service: AllServiceService, private message: SweetMessageService) {
 
@@ -21,10 +22,11 @@ export class ListEvaluationComponent implements OnInit {
   }
 
   loadAll() {
-    this.service.getAll("evaluations", (reponse: any) => {
+    this.onlineProfesseur = JSON.parse(localStorage.getItem('userOnline') || '[]');
+    this.service.getByForeignId("evaluations",this.onlineProfesseur.user[0].classeId,(reponse:any)=>{
       this.evaluations = reponse;
 
-    })
+    },"classeId");
   }
   resetForm() {
     this.date = "";

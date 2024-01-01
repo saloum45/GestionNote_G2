@@ -8,25 +8,19 @@ import { SweetMessageService } from 'src/app/services/sweet-message.service';
   templateUrl: './detail-evaluation.component.html',
   styleUrls: ['./detail-evaluation.component.scss']
 })
-export class DetailEvaluationComponent implements OnInit  {
-  public notes:any;
-  public apprenants:any;
-  public onlineProfesseur:any;
-  constructor(private service:AllServiceService, private message:SweetMessageService, private activatedRoute:ActivatedRoute){
-    // this.service.getAll("apprenants", (reponse: any) => {
-    //   this.apprenants= reponse;
-
-    // })
-
-
+export class DetailEvaluationComponent implements OnInit {
+  public notes: any;
+  public apprenants: any;
+  public onlineProfesseur: any;
+  constructor(private service: AllServiceService, private message: SweetMessageService, private activatedRoute: ActivatedRoute) {
   }
   ngOnInit(): void {
-    this.onlineProfesseur=JSON.parse(localStorage.getItem('userOnline')||'[]');
-    this.service.getByForeignId("apprenants",this.onlineProfesseur.classeId,(reponse:any)=>{
+    this.onlineProfesseur = JSON.parse(localStorage.getItem('userOnline') || '[]');
+    this.service.getByForeignId("apprenants", this.onlineProfesseur.user[0].classeId, (reponse: any) => {
       console.warn(reponse);
-      this.apprenants=reponse;
+      this.apprenants = reponse;
 
-    },"classeId");
+    }, "classeId");
   }
 
 }
