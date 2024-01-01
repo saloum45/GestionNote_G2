@@ -18,6 +18,7 @@ import { loginGuard } from 'src/app/guards/login.guard';
 import { ListEvaluationComponent } from './components/evaluation/list-evaluation/list-evaluation.component';
 import { AddEvaluationComponent } from './components/evaluation/add-evaluation/add-evaluation.component';
 import { DetailEvaluationComponent } from './components/evaluation/detail-evaluation/detail-evaluation.component';
+import { MesEvaluationsComponent } from './components/evaluation/mes-evaluations/mes-evaluations.component';
 
 const routes: Routes = [
   {
@@ -69,6 +70,9 @@ const routes: Routes = [
       },
       {
         path:'detailEvaluation/:id',component:DetailEvaluationComponent
+      },
+      {
+        path:'mesEvaluations',component:MesEvaluationsComponent
       }
 
     ]

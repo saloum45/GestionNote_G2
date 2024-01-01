@@ -24,6 +24,7 @@ import { ApprenantComponent } from './components/apprenant/apprenant.component';
 import { AddEvaluationComponent } from './components/evaluation/add-evaluation/add-evaluation.component';
 import { ListEvaluationComponent } from './components/evaluation/list-evaluation/list-evaluation.component';
 import { DetailApprenantComponent } from 'src/app/detail-apprenant/detail-apprenant.component';
+import { MesEvaluationsComponent } from './components/evaluation/mes-evaluations/mes-evaluations.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { DetailApprenantComponent } from 'src/app/detail-apprenant/detail-appren
     ApprenantComponent,
     AddEvaluationComponent,
     ListEvaluationComponent,
-    DetailEvaluationComponent
+    DetailEvaluationComponent,
+    MesEvaluationsComponent
   ],
   imports: [
     CommonModule,
