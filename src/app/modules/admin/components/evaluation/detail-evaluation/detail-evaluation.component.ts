@@ -24,7 +24,7 @@ export class DetailEvaluationComponent implements OnInit {
     this.service.getByForeignId("notes", +this.activatedRoute.snapshot.params['id'], (reponse: any) => {
       console.warn(reponse);
       this.notes = reponse;
-      if (this.notes.length>0) {
+      if (this.notes.length > 0) {
 
         let allNotes = document.querySelectorAll('input');
         allNotes.forEach((element: any, index) => {
@@ -37,24 +37,39 @@ export class DetailEvaluationComponent implements OnInit {
   attribuerNote() {
 
     let allNotes = document.querySelectorAll('input');
-    let apprennatNotes: any[] = [];
+    let apprenantNotes: any[] = [];
     this.apprenants.forEach((elementApp: any, index: any) => {
       let obj = {
         apprenant: elementApp,
         note: allNotes[index].value
       };
-      apprennatNotes.push(obj);
+      apprenantNotes.push(obj);
     });
     // console.log(element.value);
     // console.warn("data",{evaluationId:5,apprenantId:elementApp.id,note:Number(element.value)});
-    console.warn("appnoote", apprennatNotes);
-    apprennatNotes.forEach((element: any) => {
-      this.service.add("notes", { evaluationId: +this.activatedRoute.snapshot.params['id'], apprenantId: element.apprenant.id, note: Number(element.note) }, (reponse: any) => {
-        console.log(reponse);
-        this.message.simpleMessage("merci","les notes ont étées attribuées avec succès","success");
-      });
+    console.warn("appnoote", apprenantNotes);
+    this.service.getByForeignId("notes", +this.activatedRoute.snapshot.params['id'], (reponse: any) => {
+      console.warn(reponse);
+      let notesTest: any;
+      notesTest = reponse;
+      if (notesTest.length == 0) {
+        apprenantNotes.forEach((element: any) => {
+          this.service.add("notes", { evaluationId: +this.activatedRoute.snapshot.params['id'], apprenantId: element.apprenant.id, note: Number(element.note) }, (reponse: any) => {
+            console.log(reponse);
+            this.message.simpleMessage("merci", "les notes ont étées attribuées avec succès", "success");
+          });
 
-    });
+        });
+      } else {
+        apprenantNotes.forEach((element: any,index) => {
+          this.service.update("notes",notesTest[index].id, { evaluationId: +this.activatedRoute.snapshot.params['id'], apprenantId: element.apprenant.id, note: Number(element.note) }, (reponse: any) => {
+            console.log(reponse);
+            this.message.simpleMessage("merci", "les notes ont étées attribuées avec succès", "success");
+          });
+
+        });
+      }
+    }, "evaluationId");
   }
 
 }

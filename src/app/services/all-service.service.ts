@@ -33,7 +33,7 @@ export class AllServiceService {
       }
     )
   }
-  getByForeignId(path: any, id: number, onSuccess: Function,foreignIdName:any) {
+  getByForeignId(path: any, id: number, onSuccess: Function, foreignIdName: any) {
     this.http.get(`${this.urlBase + path}/?filter={"where":{"${foreignIdName}":"${id}"}}`).subscribe(
       (reponse: any) => {
         onSuccess(reponse);
@@ -58,8 +58,8 @@ export class AllServiceService {
     )
   }
 
-  update(path: any,dataToSendId:any
-  , dataToSend: any, onSuccess: Function) {
+  update(path: any, dataToSendId: any
+    , dataToSend: any, onSuccess: Function) {
     this.http.put(`${this.urlBase + path}/${dataToSendId}`, dataToSend).subscribe(
       (reponse: any) => {
         onSuccess(reponse);
