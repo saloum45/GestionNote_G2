@@ -3,12 +3,13 @@
 </div>
 <div class="conatiner">
   <div class="row">
-    <div class="col-4">
+    <div class="col-4" *ngFor="let evaluation of evaluations;index as i">
       <div>
         <div class="card" style="width: 18rem;">
           <img src="https://img.freepik.com/photos-gratuite/illustration-3d-stylo-mettant-tiques-bleues-du-papier_107791-15675.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1703635200&semt=sph" class="card-img-top" alt="...">
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text"><i class="bi bi-calendar-check"></i> {{evaluation.type}}-{{evaluation.date}}</p>
+            <p class="card-text"><i class="bi bi-card-list"></i> {{notes[i].note}}</p>
           </div>
         </div>
       </div>
